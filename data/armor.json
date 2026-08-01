@@ -1,0 +1,842 @@
+{
+  "armors": [
+    {
+      "id": 1,
+      "name": "Лорика мускулата",
+      "category": "mid",
+      "slot": "chest",
+      "ac": 14,
+      "dex_bonus_applies": true,
+      "durability_threshold": 3,
+      "durability": 85.0,
+      "properties": [
+        "ostentatious_appearance",
+        "modularity",
+        "reinforced_cuirass"
+      ],
+      "upgrade_slots": [
+        "Ремни",
+        "Боковые пластины",
+        "Спинная часть",
+        "Анатомическая пластина"
+      ],
+      "region": "Рим",
+      "description": "Бронзовый или стальной нагрудник в форме мускулатуры, использовавшийся римскими офицерами и центурионами.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 2,
+      "name": "Имперский шлем",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 1,
+      "durability": 40.0,
+      "properties": [
+        "open_helmet",
+        "ostentatious_appearance",
+        "reinforced_dome"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Назатыльник",
+        "Нащечники",
+        "Налобник",
+        "Гребень"
+      ],
+      "region": "Рим",
+      "description": "Полусферический железный шлем с козырьком, широким назатыльником и подвижными нащёчниками. С I в. н. э. купол усилили крестообразными рёбрами жёсткости против ударов фальксов, а ушные вырезы обрамили отогнутыми краями; вверху — крепление для Y-образного гребня. Удерживается скрещивающимися у подбородка ремнями.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 3,
+      "name": "Армет",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 2,
+      "durability": 55.0,
+      "properties": [
+        "movable_visor"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Назатыльник",
+        "Нащечники",
+        "Забрало",
+        "Подбородник"
+      ],
+      "region": "Англия",
+      "description": "Закрытый стальной шлем XV века с подъёмным забралом, обеспечивающий максимальную защиту лица.",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 4,
+      "name": "Барбют",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 2,
+      "durability": 45.0,
+      "properties": [
+        "open_helmet"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Ребро жесткости"
+      ],
+      "region": "Италия",
+      "description": "Открытый шлем с Т-образным или Y-образным прорезом для лица, популярный в Италии XV века.",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 5,
+      "name": "Топфхельм",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 3,
+      "durability": 60.0,
+      "properties": [
+        "closed_helmet"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Лицевая пластина",
+        "Смотровые щели",
+        "Дыхательные ответсия"
+      ],
+      "region": "Германия",
+      "description": "Ранний рыцарский \"горшковый\" шлем, полностью закрывающий голову цилиндрической формы.",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 6,
+      "name": "Хундсгугель",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 2,
+      "durability": 50.0,
+      "properties": [
+        "movable_visor"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Забрало",
+        "Смотровые щели",
+        "Дыхательные отверстия"
+      ],
+      "region": "Германия",
+      "description": "Разновидность бацинета с вытянутым острым забралом, напоминающим морду собаки. Немецкий вариант XV века.",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 7,
+      "name": "Судзи-кабуто",
+      "category": "mid",
+      "slot": "helmet",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 2,
+      "durability": 45.0,
+      "properties": [
+        "open_helmet",
+        "ostentatious_appearance"
+      ],
+      "upgrade_slots": [
+        "Хати",
+        "Мабидзаси",
+        "Фукикаэси",
+        "сикоро",
+        "Синоби-но-о",
+        "Маэдатэ",
+        "Фукигаэси"
+      ],
+      "region": "Япония",
+      "description": "Японский шлем с характерными вертикальными ребрами жёсткости (суудзи), украшенный мэабри и датэ-гаса. Стальные пластины покрыты лаком, шейная защита выполнена из ламеллярных элементов.",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 8,
+      "name": "Cingulum militare",
+      "category": "mid",
+      "slot": "belt",
+      "ac": 1,
+      "dex_bonus_applies": true,
+      "durability_threshold": 1,
+      "durability": 20.0,
+      "properties": [],
+      "upgrade_slots": [
+        "Пояс",
+        "Фартук",
+        "Пряжки",
+        "Подвесы для оружия"
+      ],
+      "region": "Рим",
+      "description": "Римский военный пояс, был частью древней римской военной экипировки в виде ремня, украшенного металлическими деталями, который носился как знак ранга солдатами и чиновниками.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 9,
+      "name": "Древнеримские поножи",
+      "category": "mid",
+      "slot": "legs",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 1,
+      "durability": 30.0,
+      "properties": [
+        "modularity"
+      ],
+      "upgrade_slots": [
+        "3 пластины",
+        "Ремни"
+      ],
+      "region": "Рим",
+      "description": "Поножи обычно состояли из трёх выгнутых металлических пластин. Сзади они соединялись ремнями и пряжками. Изнутри поножи подбивались тканью. Наружная поверхность пластин могла быть гладкой или украшенной рельефным рисунком.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 10,
+      "name": "Калиги",
+      "category": "mid",
+      "slot": "feet",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 10.0,
+      "properties": [
+        "marching_footwear",
+        "spiked_footwear"
+      ],
+      "upgrade_slots": [
+        "Сандаля с ремнями"
+      ],
+      "region": "Рим",
+      "description": "Обувь солдат состояла из кожаных чулок и сандалий с ремнями. Толстая подошва сандалий была покрыта шипами. Переплёты ремней часто доходили до колен. Калиги были хорошо приспособлены для длительных переходов.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 11,
+      "name": "Птериги",
+      "category": "mid",
+      "slot": "accessory",
+      "ac": 1,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 20.0,
+      "properties": [],
+      "upgrade_slots": [
+        "Кожаные полосы",
+        "Ремни крепления",
+        "Подкладка"
+      ],
+      "region": "Рим",
+      "description": "Ряд широких кожанных полос, которые свисали с пояса или плеч кирасы, обеспечивая защиту и не сковывая движений солдата",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "optional"
+    },
+    {
+      "id": 12,
+      "name": "Лорика хамата",
+      "category": "mid",
+      "slot": "chest",
+      "ac": 14,
+      "dex_bonus_applies": true,
+      "durability_threshold": 2,
+      "durability": 70.0,
+      "properties": [
+        "chainmail_mesh"
+      ],
+      "upgrade_slots": [
+        "Плечевые кольца",
+        "Грудные кольца",
+        "Спинные кольца",
+        "Боковые вставки",
+        "Подкладка"
+      ],
+      "region": "Рим",
+      "description": "Кольчуга обеспечивает надёжную защиту от колющих ударов, но требует подкладки и издаёт характерный звон при движении.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 13,
+      "name": "Лорика сегментата",
+      "category": "mid",
+      "slot": "chest",
+      "ac": 16,
+      "dex_bonus_applies": true,
+      "durability_threshold": 3,
+      "durability": 80.0,
+      "properties": [],
+      "upgrade_slots": [
+        "Грудные сегменты",
+        "Спинные сегменты",
+        "Плечевые ламелы",
+        "Боковые ремни",
+        "Крючки и застёжки"
+      ],
+      "region": "Рим",
+      "description": "Доспех из горизонтальных железных сегментов, соединённых внутренними кожаными ремнями и внешними бронзовыми крючками. Сегменты перекрываются внахлёст, создавая многослойную защиту, при этом повреждённые полосы легко заменить в полевых условиях.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 14,
+      "name": "Роба заключённого",
+      "category": "clothes",
+      "slot": "chest",
+      "ac": 10,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "Повсеместно",
+      "description": ""
+    },
+    {
+      "id": 15,
+      "name": "Усиленная роба заключённого",
+      "category": "makeshift",
+      "slot": "chest",
+      "ac": 13,
+      "dex_bonus_applies": false,
+      "durability_threshold": 2,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "Повсеместно",
+      "description": ""
+    },
+    {
+      "id": 16,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 17,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 18,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 19,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 20,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 21,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 22,
+      "name": "",
+      "category": "mid",
+      "slot": "",
+      "ac": 0,
+      "dex_bonus_applies": true,
+      "durability_threshold": 0,
+      "durability": 0,
+      "properties": [],
+      "upgrade_slots": [],
+      "region": "—",
+      "description": "",
+      "dex_bonus_max": 3
+    },
+    {
+      "id": 23,
+      "name": "Пенис",
+      "category": "mid",
+      "slot": "shield",
+      "ac": 1,
+      "dex_bonus_applies": true,
+      "durability_threshold": 3,
+      "durability": 85.0,
+      "properties": [
+        "ostentatious_appearance",
+        "modularity",
+        "reinforced_cuirass"
+      ],
+      "upgrade_slots": [
+        "Ремни",
+        "Боковые пластины",
+        "Спинная часть",
+        "Анатомическая пластина"
+      ],
+      "region": "Рим",
+      "description": "Бронзовый или стальной нагрудник в форме мускулатуры, использовавшийся римскими офицерами и центурионами.",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    }
+  ],
+  "sets": [
+    {
+      "id": 3,
+      "name": "Гоблинский латный доспех",
+      "category": "heavy",
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 4,
+      "name": "Доумару",
+      "category": "mid",
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "Япония"
+    },
+    {
+      "id": 5,
+      "name": "Легионер",
+      "category": "mid",
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [
+        "helmet",
+        "chest",
+        "legs",
+        "belt",
+        "feet"
+      ],
+      "optional_slots": [
+        "accessory"
+      ],
+      "elements": [
+        2,
+        1,
+        13,
+        12,
+        9,
+        8,
+        10,
+        11
+      ],
+      "region": "—"
+    },
+    {
+      "id": 6,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 7,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 8,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 9,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 10,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 11,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 12,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 13,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 14,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 15,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 16,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 17,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 18,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 19,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 20,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 21,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    },
+    {
+      "id": 22,
+      "name": "",
+      "category": null,
+      "description": "",
+      "set_bonus": {},
+      "required_slots": [],
+      "optional_slots": [],
+      "elements": [],
+      "region": "—"
+    }
+  ],
+  "properties": [
+    {
+      "id": "sewnin_plates",
+      "name": "Вшитые пластины",
+      "applies_to": "Модифицированные доспехи",
+      "effect": "+3 к КД доспеха относительно оригинала\n+2 к порогу прочности доспеха относительно оригинала\n+30 к прочности доспеха относительно оригинала",
+      "description": "В когда-то привычный всем костюм, были добавлены металлические пластины, блокирующие часть урона"
+    },
+    {
+      "id": "forearm_protection_paired",
+      "name": "Защита предплечья (парная)",
+      "applies_to": "Полному доспеху или эллементу доспеха",
+      "effect": "+2 к КД\n+10 к прочности доспеха\nРеакция  \"Защитная стойка\" ⟹ +1 к КД",
+      "description": "Предплечье теперь защищено, во многих ситуациях защищает руку."
+    },
+    {
+      "id": "small_size",
+      "name": "Маленький размер",
+      "applies_to": "Полному доспеху",
+      "effect": "Может носиться только существами небольшого размера. Для существ среднего размера КД снижается на 4, а штраф к скрытности увеличивается на 2.",
+      "description": ""
+    },
+    {
+      "id": "full_plate_protection",
+      "name": "Полная латная защита",
+      "applies_to": "Полному доспеху",
+      "effect": "",
+      "description": "Полный комплект из шлема, кирасы, наплечников, наручей, поножей и сабатонов."
+    },
+    {
+      "id": "modularity",
+      "name": "Модульность",
+      "applies_to": "Полному доспеху или эллементу доспеха",
+      "effect": "+1 к  ходам на переодевание доспеха",
+      "description": "Доспех можно снимать и надевать частями."
+    },
+    {
+      "id": "lamellar_flexibility",
+      "name": "Ламеллярная гибкость",
+      "applies_to": "Ламеллярные доспехи",
+      "effect": "При успешном спасброске Ловкости от эффекта по площади вы получаете на 1d4 меньше урона\nПри провале доспех дополнительно теряет 1d8 прочности",
+      "description": "Подвижные пластины помогают отлично гасить удары, но в неумелых руках быстро ломаются"
+    },
+    {
+      "id": "movable_visor",
+      "name": "Подвижное забрало",
+      "applies_to": "Шлем",
+      "effect": "Действием переключает режим открытого/закрытого забрала",
+      "description": "Шлем с подвижным забралом позволяет адаптироваться к ситуации"
+    },
+    {
+      "id": "closed_helmet",
+      "name": "Закрытый шлем",
+      "applies_to": "Шлем",
+      "effect": "Помеха на проверки Восприятия\nИммунитет к состояниям \"Оглушённый\" и \"Ослеплённый\" от внешних источников",
+      "description": "Полностью закрытый шлем защищает лицо, но ограничивает обзор"
+    },
+    {
+      "id": "open_helmet",
+      "name": "Открытый шлем",
+      "applies_to": "Шлем",
+      "effect": "Нет особенных преимуществ и недостатков",
+      "description": "Открытый шлем не ограничивает обзор, но не защищает лицо от ослепления"
+    },
+    {
+      "id": "ostentatious_appearance",
+      "name": "Пафосный вид",
+      "applies_to": "Доспех",
+      "effect": "Проверки Выступления, совершаются с преимущетсвом\n-1 к проверкам Скрытности",
+      "description": "Впечатляющий внешний вид шлема демонстрирует статус владельца"
+    },
+    {
+      "id": "reinforced_dome",
+      "name": "Усиленный купол",
+      "applies_to": "Шлем",
+      "effect": "+5 к прочности шлема\n+1 к порогу прочности шлема\nСопротивление урону от падения предметов на голову",
+      "description": "Усиленная конструкция купола защищает от ударов сверху"
+    },
+    {
+      "id": "reinforced_cuirass",
+      "name": "Усиленнная кираса",
+      "applies_to": "Кираса",
+      "effect": "+10 к прочности доспеха\n+1 к порогу прочности\n-1d4 физического урона при ударе в кирасу",
+      "description": "Толстые пластины нагрудника надёжно защищают жизненно важные органы от прямых ударов"
+    },
+    {
+      "id": "marching_footwear",
+      "name": "Походная обувь",
+      "applies_to": "Обувь",
+      "effect": "×2 скорость передвижения",
+      "description": "Эта обувь идеально предназначена для передвижения на длинные дистанции"
+    },
+    {
+      "id": "spiked_footwear",
+      "name": "Шипованная обувь",
+      "applies_to": "Обувь",
+      "effect": "+5 фт. к скорости по сложному рельефу (грязь, снег, лёд)\nСопротивление спасброскам Силы против сбивания с ног\n+1d4 колющего урона безоружным атакам ногой",
+      "description": "Подошва с шипами обеспечивает надёжное сцепление с любой поверхностью и может служить оружием в крайнем случае"
+    },
+    {
+      "id": "chainmail_mesh",
+      "name": "Кольчужная сеть",
+      "applies_to": "Кольчужный доспех",
+      "effect": "Сопротивление колющему урону\nПомеха на проверки Скрытности",
+      "description": "Сплетённые железные кольца эффективно рассеивают силу колющих ударов, но издают характерный металлический звон при движении, выдавая положение носителя."
+    }
+  ],
+  "categories": {
+    "clothes": {
+      "base_ac": "10",
+      "dex_mod": "+ ЛОВ",
+      "properties": "В этих доспехах Вы считаетесь небронированной целью",
+      "description": "Обычная одежда будь то празничный костюм, тюремная роба или колхозная рубаха. Не лучший доспех, но лучше, чем без одежды"
+    },
+    "makeshift": {
+      "base_ac": "12-16",
+      "dex_mod": "—",
+      "properties": "Базовое КД не может быть увеличено от характеристик, если нет свойства, трактующего обратное",
+      "description": "Доспех сделан не в лучших условиях, из того, что было под рукой."
+    },
+    "light": {
+      "base_ac": "11-13",
+      "dex_mod": "+ ЛОВ",
+      "properties": "Базовое КД доспеха может быть усилено с помощью Ловкости персонажа",
+      "description": "Не слишком бронированный, чтобы защищать от пуль, но по крайней мере он не сковывает движения"
+    },
+    "mid": {
+      "base_ac": "14-16",
+      "dex_mod": "+ ЛОВ \n(макс. +3)",
+      "properties": "Требуют владения средними доспехами.",
+      "description": "Баланс защиты и подвижности."
+    },
+    "heavy": {
+      "base_ac": "17-19",
+      "dex_mod": "—",
+      "properties": "Требуют владения тяжёлыми доспехами. \nПомеха на проверки Скрытности. \nСкорость снижается на 5 фт (если нет свойства \"Облегчённый»\").",
+      "description": "Максимальная защита за счёт мобильности. Пробиваются только мощными ударами."
+    }
+  }
+}

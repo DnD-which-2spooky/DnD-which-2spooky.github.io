@@ -1,0 +1,373 @@
+{
+  "natural_weapons": {
+    "claws": {
+      "id": "claws",
+      "type": "claws",
+      "base_damage": "1d4",
+      "damage_type": "рубящий",
+      "ability": "dex",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "light",
+        "finesse",
+        "natural"
+      ],
+      "description": "Острые когти на кончиках пальцев."
+    },
+    "bite": {
+      "id": "bite",
+      "type": "bite",
+      "base_damage": "1d6",
+      "damage_type": "колющий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "natural"
+      ],
+      "description": "Мощные челюсти способные разорвать плоть."
+    },
+    "beak": {
+      "id": "beak",
+      "type": "beak",
+      "base_damage": "1d6",
+      "damage_type": "рубящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "armor_penetration_minor",
+        "natural"
+      ],
+      "description": "Острый клюв, способный проколоть броню."
+    },
+    "hooves": {
+      "id": "hooves",
+      "type": "hooves",
+      "base_damage": "1d6",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "natural"
+      ],
+      "description": "Твёрдые копыта для сокрушительных ударов."
+    },
+    "tail": {
+      "id": "tail",
+      "type": "tail",
+      "base_damage": "1d6",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 10,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "reach",
+        "natural"
+      ],
+      "description": "Длинный хвост с шипом или тяжёлым наконечником."
+    },
+    "spikes": {
+      "id": "spikes",
+      "type": "spikes",
+      "base_damage": "1d4",
+      "damage_type": "колющий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "natural"
+      ],
+      "description": "Костяные шипы, вырастающие из тела."
+    },
+    "fangs": {
+      "id": "fangs",
+      "type": "fangs",
+      "base_damage": "1d6",
+      "damage_type": "колющий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "natural"
+      ],
+      "description": "Длинные острые клыки."
+    },
+    "paws": {
+      "id": "paws",
+      "type": "paws",
+      "base_damage": "1d6",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "natural"
+      ],
+      "description": "Мощные лапы для ударов."
+    },
+    "unarmed": {
+      "id": "unarmed",
+      "type": "unarmed",
+      "base_damage": "1d4",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "light"
+      ],
+      "description": "Удары кулаками, ладонями или конечностями."
+    },
+    "tentacle": {
+      "id": "tentacle",
+      "type": "tentacle",
+      "base_damage": "1d6",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 10,
+      "range_max": 10,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "reach",
+        "natural"
+      ],
+      "description": "Гибкое щупальце с дальностью 10 фт."
+    },
+    "scythe_claws": {
+      "id": "scythe_claws",
+      "type": "scythe_claws",
+      "base_damage": "1d6",
+      "damage_type": "рубящий",
+      "ability": "con",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "destroyer",
+        "natural"
+      ],
+      "description": "Длинные изогнутые когти, наносящие двойной урон постройкам и существам из дерева/земли."
+    },
+    "venom_spit": {
+      "id": "venom_spit",
+      "type": "venom_spit",
+      "base_damage": "1d6",
+      "damage_type": "яд",
+      "ability": "int",
+      "range_effective": 15,
+      "range_max": 15,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "ranged",
+        "special"
+      ],
+      "description": "Струя ядовитой жидкости. Дальнобойная атака. При попадании цель должна совершить спасбросок Телосложения или быть отравлена."
+    },
+    "head_spikes": {
+      "id": "head_spikes",
+      "type": "head_spikes",
+      "base_damage": "1d4",
+      "damage_type": "колющий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "armor_penetration_minor",
+        "three_blades"
+      ],
+      "description": "Три шипа на голове."
+    },
+    "fluffy_tail": {
+      "id": "fluffy_tail",
+      "type": "fluffy_tail",
+      "base_damage": "1d8",
+      "damage_type": "дробящий",
+      "ability": "str",
+      "range_effective": 5,
+      "range_max": 5,
+      "category": "Естественное оружие",
+      "crit_chance": "20",
+      "properties": [
+        "Широкий хвост"
+      ],
+      "description": "Может использоваться как оружие или как щит (+2 к КД)."
+    }
+  },
+  "natural_armor": {
+    "scales_light": {
+      "id": "scales_light",
+      "type": "scales_light",
+      "name": "Лёгкая чешуя",
+      "ac_base": 11,
+      "ability": "dex",
+      "dex_bonus_max": null,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "description": "Лёгкая чешуя, покрывающая тело."
+    },
+    "scales_medium": {
+      "id": "scales_medium",
+      "type": "scales_medium",
+      "name": "Крепкая чешуя",
+      "ac_base": 12,
+      "ability": "dex",
+      "dex_bonus_max": 2,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "description": "Прочная чешуя с умеренной гибкостью."
+    },
+    "scales_heavy": {
+      "id": "scales_heavy",
+      "type": "scales_heavy",
+      "name": "Тяжёлая чешуя",
+      "ac_base": 14,
+      "ability": "dex",
+      "dex_bonus_max": 0,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "description": "Толстая чешуя, ограничивающая подвижность."
+    },
+    "exoskeleton": {
+      "id": "exoskeleton",
+      "type": "exoskeleton",
+      "name": "Экзоскелет",
+      "ac_base": 13,
+      "ability": "dex",
+      "dex_bonus_max": 2,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "properties": [
+        "resistance_bludgeoning_piercing_slashing_nonmagical"
+      ],
+      "description": "Прочный хитиновый панцирь."
+    },
+    "shell": {
+      "id": "shell",
+      "type": "shell",
+      "name": "Панцирь",
+      "ac_base": 15,
+      "ability": "con",
+      "dex_bonus_max": 0,
+      "dex_bonus_applies": false,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "description": "Тяжёлый костяной панцирь."
+    },
+    "bone_collar": {
+      "id": "bone_collar",
+      "type": "bone_collar",
+      "name": "Костный воротник",
+      "ac_base": 0,
+      "ability": "dex",
+      "dex_bonus_max": 2,
+      "dex_bonus_applies": true,
+      "slot": "helmet",
+      "category": "Естественная броня",
+      "properties": [],
+      "description": "Костный воротник. Если есть другая естественная броня — +2 КД. Если нет — КД 12.",
+      "is_additive": true,
+      "additive_bonus": 2,
+      "standalone_ac": 12
+    },
+    "thick_hide": {
+      "id": "thick_hide",
+      "type": "thick_hide",
+      "name": "Толстая шкура",
+      "ac_base": 12,
+      "ability": "con",
+      "dex_bonus_max": null,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "description": "Плотная кожа, выдерживающая удары."
+    },
+    "obsidian_skin": {
+      "id": "obsidian_skin",
+      "type": "obsidian_skin",
+      "name": "Обсидиановая кожа",
+      "ac_base": 13,
+      "ability": "dex",
+      "dex_bonus_max": 2,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "properties": [
+        "sharp_unarmed"
+      ],
+      "description": "Кожа из вулканического стекла. Безоружные атаки наносят рубящий урон."
+    },
+    "marble_skin": {
+      "id": "marble_skin",
+      "type": "marble_skin",
+      "name": "Мраморная кожа",
+      "ac_base": 12,
+      "ability": "dex",
+      "dex_bonus_max": 5,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "properties": [],
+      "description": "Кожа из кожа из мрамора, крайне прочная."
+    },
+    "fur": {
+      "id": "fur",
+      "type": "fur",
+      "name": "Густая шерсть",
+      "ac_base": 11,
+      "ability": "dex",
+      "dex_bonus_max": null,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "properties": [
+        "cold_resistance"
+      ],
+      "description": "Густая шерсть защищает от холода."
+    },
+    "feathers": {
+      "id": "feathers",
+      "type": "feathers",
+      "name": "Перьевой покров",
+      "ac_base": 11,
+      "ability": "dex",
+      "dex_bonus_max": null,
+      "dex_bonus_applies": true,
+      "slot": "chest",
+      "category": "Естественная броня",
+      "properties": [
+        "fly_speed_bonus"
+      ],
+      "description": "Лёгкие перья, не ограничивающие полёт."
+    }
+  }
+}

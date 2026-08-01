@@ -1,0 +1,211 @@
+{
+  "skills": [
+    {
+      "name": "Ловкость рук",
+      "characteristic": "DEX",
+      "description": "Мелкая моторика, карманные кражи",
+      "type": "active"
+    },
+    {
+      "name": "Акробатика",
+      "characteristic": "DEX",
+      "description": "Кувырки, балансирование, уклонение",
+      "type": "active"
+    },
+    {
+      "name": "Скрытность",
+      "characteristic": "DEX",
+      "description": "Незаметное передвижение, маскировка, прятанье",
+      "type": "active"
+    },
+    {
+      "name": "Атлетика",
+      "characteristic": "STR",
+      "description": "Прыжки, лазание, плавание",
+      "type": "active"
+    },
+    {
+      "name": "Интимидация",
+      "characteristic": "STR",
+      "description": "Запугивание грубой силой",
+      "type": "active"
+    },
+    {
+      "name": "Выносливость",
+      "characteristic": "CON",
+      "description": "Длительные нагрузки, сопротивление усталости",
+      "type": "active"
+    },
+    {
+      "name": "Стойкость",
+      "characteristic": "CON",
+      "description": "Сопротивление ядам, холоду, жаре, болезням",
+      "type": "active"
+    },
+    {
+      "name": "Природа",
+      "characteristic": "WIS",
+      "description": "Растения, животные, погода, экосистемы",
+      "type": "active"
+    },
+    {
+      "name": "Восприятие",
+      "characteristic": "WIS",
+      "description": "Замечание деталей",
+      "type": "active"
+    },
+    {
+      "name": "Проницательность",
+      "characteristic": "WIS",
+      "description": "Понимание намерений, чувств, обнаружение обмана",
+      "type": "active"
+    },
+    {
+      "name": "Выживание",
+      "characteristic": "WIS",
+      "description": "Ориентация на местности, создание примитивных предметов, собирательство",
+      "type": "active"
+    },
+    {
+      "name": "Чуйка",
+      "characteristic": "WIS",
+      "description": "Внутреннее чутьё, предчувствие опасности или удачи",
+      "type": "active"
+    },
+    {
+      "name": "Медицина",
+      "characteristic": "WIS",
+      "description": "Первая помощь, диагностика болезней и ран, анатомия, хирургия",
+      "type": "active"
+    },
+    {
+      "name": "Дрессировка",
+      "characteristic": "WIS",
+      "description": "Управление животными, уход за ними, понимание их поведения",
+      "type": "active"
+    },
+    {
+      "name": "Анализ",
+      "characteristic": "INT",
+      "description": "Изучение, исследование, логика",
+      "type": "active"
+    },
+    {
+      "name": "История",
+      "characteristic": "INT",
+      "description": "Знание прошлого, исторических личностей, событий, культур",
+      "type": "active"
+    },
+    {
+      "name": "Астрология",
+      "characteristic": "INT",
+      "description": "Наблюдение за звёздами, изучение космических тел",
+      "type": "active"
+    },
+    {
+      "name": "Алхимия",
+      "characteristic": "INT",
+      "description": "Варка и анализ зелий и иных алхим. приблуд",
+      "type": "active"
+    },
+    {
+      "name": "Навигация",
+      "characteristic": "INT",
+      "description": "Ориентирование по картам, звёздам, ландшафту",
+      "type": "active"
+    },
+    {
+      "name": "Религия",
+      "characteristic": "INT",
+      "description": "Знание богов, обрядов, религиозных символов и организаций",
+      "type": "active"
+    },
+    {
+      "name": "Соблазнение",
+      "characteristic": "CHA",
+      "description": "Флирт, заигрывание",
+      "type": "active"
+    },
+    {
+      "name": "Запугивание",
+      "characteristic": "CHA",
+      "description": "Принуждение с помощью угроз, силы, демонстрации власти",
+      "type": "active"
+    },
+    {
+      "name": "Выступление",
+      "characteristic": "CHA",
+      "description": "Игра на инструменте, пение, танцы, ораторское искусство",
+      "type": "active"
+    },
+    {
+      "name": "Обман",
+      "characteristic": "CHA",
+      "description": "Введение в заблуждение, ложь, утаивание намерений",
+      "type": "active"
+    },
+    {
+      "name": "Убеждение",
+      "characteristic": "CHA",
+      "description": "Убеждение других с помощью логики, вежливости, дипломатии",
+      "type": "active"
+    },
+    {
+      "name": "Поддержка",
+      "characteristic": "CHA",
+      "description": "Успокоение, утешение, моральная помощь",
+      "type": "active"
+    },
+    {
+      "name": "Кузнечное дело",
+      "characteristic": ["STR", "INT", "DEX"],
+      "description": "Создание, ремонт и улучшение металлических предметов",
+      "type": "active"
+    },
+    {
+      "name": "Инженерия",
+      "characteristic": ["INT", "DEX"],
+      "description": "Создание, починка и понимание механизмов, электрика, пневматика, черчение",
+      "type": "active"
+    },
+    {
+      "name": "Ремесло",
+      "characteristic": ["INT"],
+      "description": "Изготовление различных предметов",
+      "type": "active"
+    },
+    {
+      "name": "Строительство",
+      "characteristic": ["INT", "STR"],
+      "description": "Планирование, возведение, ремонт зданий",
+      "type": "active"
+    },
+    {
+      "name": "Творчество",
+      "characteristic": ["INT", "CHA"],
+      "description": "Рисование, написание стихов, гравирование и т.д.",
+      "type": "active"
+    },
+    {
+      "name": "Устрашение",
+      "characteristic": "CHA",
+      "description": "Пассивный аналог запугивания",
+      "type": "passive",
+      "derived_from": "Запугивание"
+    },
+    {
+      "name": "Соблазнительность",
+      "characteristic": "CHA",
+      "description": "Пассивный аналог соблазнения",
+      "type": "passive",
+      "derived_from": "Соблазнение"
+    },
+    {
+      "name": "Внимание",
+      "characteristic": "WIS",
+      "description": "Пассивный аналог восприятия",
+      "type": "passive",
+      "derived_from": "Восприятие"
+    }
+  ]
+}

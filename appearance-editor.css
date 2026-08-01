@@ -1,0 +1,356 @@
+/* ============================================
+   APPEARANCE EDITOR — вкладка "Внешность"
+   Стилизация под основной styles.css
+   ============================================ */
+
+/* ---------- Карточка редактора ---------- */
+.appearance-editor-card {
+  padding: 28px 32px 32px;
+}
+
+/* ---------- Шапка ---------- */
+.appearance-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skin-color-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skin-color-group .field-label {
+  margin: 0;
+}
+
+.skin-color-input {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.skin-color-input:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.appearance-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(184, 161, 110, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.age-badge {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.age-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.age-badge.active {
+  background: linear-gradient(135deg, var(--accent), #7a6b4e);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(184, 161, 110, 0.3);
+}
+
+/* ---------- Тело ---------- */
+.appearance-body {
+  display: flex;
+  gap: 24px;
+}
+
+.appearance-left {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appearance-right {
+  width: 52%;
+  background: var(--input-bg);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  min-height: 400px;
+}
+
+.appearance-preview-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+}
+
+.preview-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.appearance-preview-placeholder p {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.preview-hint {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ---------- Секции ---------- */
+.appearance-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appearance-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* ---------- Пол ---------- */
+.gender-group {
+  display: flex;
+  gap: 10px;
+}
+
+.gender-radio {
+  display: none;
+}
+
+.gender-label {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  background: var(--input-bg);
+}
+
+.gender-label:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.gender-radio:checked + .gender-label {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(184, 161, 110, 0.2), rgba(184, 161, 110, 0.08));
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.gender-label.unknown {
+  font-size: 14px;
+}
+
+/* ---------- Сетка 2 колонки ---------- */
+.appearance-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ---------- Селекты ---------- */
+.styled-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a8a7a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.styled-select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ---------- Динамические секции ---------- */
+.dynamic-section .section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dynamic-section .section-header .appearance-section-title {
+  margin: 0;
+}
+
+.add-btn {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 8px !important;
+}
+
+.add-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ---------- Строки записей ---------- */
+.entry-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.entry-row .field-input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 13px;
+  min-height: 34px;
+}
+
+.entry-row select.field-input {
+  padding-right: 28px;
+  background-position: right 8px center;
+}
+
+.look-field {
+  flex: 1;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: not-allowed;
+  user-select: none;
+  background: rgba(26, 34, 26, 0.3);
+}
+
+.remove-btn {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: #e74c3c;
+  color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.empty-msg {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-style: italic;
+  padding: 6px 0;
+  opacity: 0.7;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 900px) {
+  .appearance-body {
+    flex-direction: column;
+  }
+  .appearance-left,
+  .appearance-right {
+    width: 100%;
+  }
+  .appearance-right {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .appearance-top {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .appearance-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .entry-row {
+    flex-wrap: wrap;
+  }
+  .entry-row .field-input,
+  .entry-row .look-field {
+    min-width: 120px;
+  }
+}

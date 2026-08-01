@@ -1,0 +1,297 @@
+/* ========== SPELL DEBUG MODAL (изолированные стили) ========== */
+
+#spellDebugModal .modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 960px;
+  width: 95%;
+}
+
+#spellDebugModal .modal-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border, #2f3a2e);
+}
+#spellDebugModal .modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--accent, #b8a16e);
+}
+
+
+
+#spellDebugModal .modal-footer {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--border, #2f3a2e);
+}
+#spellDebugModal .modal-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary, #8a9a8a);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+#spellDebugModal .modal-close:hover {
+  color: var(--text-primary, #e0e0e0);
+}
+
+/* ========== SPELL CARDS WITH ORIGINAL SVG ========== */
+.spells-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+  padding: 8px;
+}
+
+.spell-card-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 781 / 1024;
+  background: var(--bg-card, #232b22);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  user-select: none;
+}
+
+.spell-card-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 2px var(--accent-glow, rgba(184,161,110,0.3));
+}
+
+.spell-card-frame.selected {
+  box-shadow: 0 0 0 3px var(--accent, #b8a16e), 0 12px 32px rgba(0,0,0,0.5);
+}
+
+.spell-frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SVG text elements styling */
+.spell-frame-svg text {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* foreignObject divs scrollbar styling */
+.spell-frame-svg foreignObject div::-webkit-scrollbar {
+  width: 4px;
+}
+.spell-frame-svg foreignObject div::-webkit-scrollbar-thumb {
+  background: var(--border, #2f3a2e);
+  border-radius: 2px;
+}
+
+/* Modification icons inside SVG foreignObject */
+.mod-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid var(--border, #2f3a2e);
+  background: var(--input-bg, #1a221a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mod-icon:hover {
+  border-color: var(--accent, #b8a16e);
+  transform: scale(1.08);
+}
+
+.mod-icon.selected {
+  border-color: var(--accent, #b8a16e);
+  box-shadow: 0 0 8px rgba(184,161,110,0.35);
+  background: rgba(184,161,110,0.12);
+}
+
+.mod-icon img,
+.mod-icon svg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.mod-placeholder {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-secondary, #8a9a8a);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mod-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  border: 1px solid var(--accent, #b8a16e);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: var(--text-primary, #e0e0e0);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.mod-icon:hover .mod-tooltip {
+  opacity: 1;
+}
+
+
+
+.debug-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.debug-field label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-secondary, #8a9a8a);
+  letter-spacing: 0.5px;
+}
+
+.debug-field input,
+.debug-field textarea,
+.debug-field select {
+  background: var(--input-bg, #1a221a);
+  border: 1px solid var(--border, #2f3a2e);
+  border-radius: 6px;
+  color: var(--text-primary, #e0e0e0);
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.debug-field input:focus,
+.debug-field textarea:focus,
+.debug-field select:focus {
+  border-color: var(--accent, #b8a16e);
+}
+
+.debug-field input[readonly],
+.debug-field textarea[readonly] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.debug-field textarea {
+  min-height: 80px;
+}
+
+@media (max-width: 768px) {
+  .spells-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ========== MODIFICATIONS TEXT LIST ========== */
+.mod-text-item {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #2f3a2e);
+  background: var(--input-bg, #1a221a);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mod-text-item:hover {
+  border-color: var(--accent, #b8a16e);
+  background: rgba(184, 161, 110, 0.08);
+}
+
+.mod-text-item.selected {
+  border-color: var(--accent, #b8a16e);
+  background: rgba(184, 161, 110, 0.15);
+  box-shadow: 0 0 6px rgba(184, 161, 110, 0.2);
+}
+
+.mod-text-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary, #e0e0e0);
+  line-height: 1.3;
+}
+
+.mod-text-desc {
+  font-size: 11px;
+  color: var(--text-secondary, #8a9a8a);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.spell-card-frame {
+  position: relative;
+}
+.spell-card-actions {
+  position: absolute;
+  bottom: 14px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  pointer-events: none;
+  z-index: 10;
+}
+.spell-btn-delete,
+.spell-btn-edit {
+  pointer-events: auto;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.spell-btn-delete {
+  background: linear-gradient(135deg, #3a1a1a, #1f0a0a);
+  border: 2px solid #e74c3c;
+  color: #ff6b6b;
+  box-shadow: 0 4px 14px rgba(231, 76, 60, 0.35);
+}
+.spell-btn-delete:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(231, 76, 60, 0.55);
+  border-color: #ff6b6b;
+}
+.spell-btn-edit {
+  background: linear-gradient(135deg, #3a3220, #1f1a0a);
+  border: 2px solid #B8A16E;
+  color: #f0e6c8;
+  box-shadow: 0 4px 14px rgba(184, 161, 110, 0.30);
+}
+.spell-btn-edit:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(184, 161, 110, 0.50);
+  border-color: #d4c59a;
+}

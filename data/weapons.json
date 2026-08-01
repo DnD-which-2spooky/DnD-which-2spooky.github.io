@@ -1,0 +1,1590 @@
+{
+  "weapons": [
+    {
+      "id": 1,
+      "name": "Шоалинь гунь",
+      "category": "Ударно-дробящее",
+      "subcategory": "Шесты и посохи",
+      "group": "Монашеское",
+      "damage": "1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 10.0,
+      "properties": [
+        "universal",
+        "light",
+        "elastic_block"
+      ],
+      "durability": "50.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Конец",
+        "Центр хвата",
+        "Конец"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 2,
+      "name": "Чинкуэда",
+      "category": "Колюще-режущее",
+      "subcategory": "Кинжалы",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "wide_blade",
+        "armor_penetration_minor",
+        "double-edged_blade"
+      ],
+      "durability": "90.0",
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Италия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 3,
+      "name": "Шишка",
+      "category": "Стрелковое",
+      "subcategory": "Метательное",
+      "group": "Бросковое",
+      "damage": "1d4",
+      "damage_type": "дробящий",
+      "range_effective": 65.0,
+      "range_max": 100.0,
+      "properties": [
+        "light",
+        "natural",
+        {
+          "name": "shrapnel_1",
+          "bracket": "5"
+        },
+        "impromptu",
+        "primitive"
+      ],
+      "durability": "10.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Ось",
+        "Семенные чешуйки",
+        "Кроющие чешуйки"
+      ],
+      "region": "Хвойные леса"
+    },
+    {
+      "id": 4,
+      "name": "Камушек",
+      "category": "Стрелковое",
+      "subcategory": "Метательное",
+      "group": "Бросковое",
+      "damage": "1d4",
+      "damage_type": "дробящий",
+      "range_effective": 80.0,
+      "range_max": 130.0,
+      "properties": [
+        "light",
+        "natural",
+        "impromptu",
+        "armor_penetration_minor",
+        "primitive"
+      ],
+      "durability": "20.0",
+      "crit_chance": "20",
+      "region": "Повсеместно"
+    },
+    {
+      "id": 5,
+      "name": "Катар",
+      "category": "Колюще-режущее",
+      "subcategory": "Кинжалы",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "double-edged_blade",
+        "wide_blade",
+        "wearable"
+      ],
+      "upgrade_slots": [
+        "Клинок",
+        "Рукоять",
+        "Защитные пластины"
+      ],
+      "region": "Индия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 6,
+      "name": "Пата",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "double-edged_blade",
+        "wearable",
+        "long_blade",
+        "plate_gauntlet"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Латная руковица",
+        "Рукоять"
+      ],
+      "region": "Индия",
+      "image": "Зона поражение длинным клинок.svg"
+    },
+    {
+      "id": 7,
+      "name": "Скьявона",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "long_blade",
+        "basket_guard"
+      ],
+      "upgrade_slots": [
+        "Клинок",
+        "Корзинчатая гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Венеция",
+      "image": "Зона поражение длинным клинок.svg"
+    },
+    {
+      "id": 8,
+      "name": "Шотландский палаш",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "basket_guard"
+      ],
+      "upgrade_slots": [
+        "Клинок",
+        "Корзинчатая гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Шотландия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 9,
+      "name": "Уруми",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 7.5,
+      "properties": [
+        "flexible",
+        "long_blade",
+        "double-edged_blade"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок из множества полос металла",
+        "Корзинчатая гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Индия",
+      "image": "Зона поражение длинным клинок.svg"
+    },
+    {
+      "id": 10,
+      "name": "Шиллейла",
+      "category": "Ударно-дробящее",
+      "subcategory": "Дубины",
+      "damage": "1d6/1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "universal",
+        "light",
+        "decorative",
+        "stunning"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Ирладия"
+    },
+    {
+      "id": 11,
+      "name": "Дубина",
+      "category": "Ударно-дробящее",
+      "subcategory": "Дубины",
+      "damage": "1d6/1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "light",
+        "universal",
+        "primitive",
+        "destroyer",
+        "stunning"
+      ],
+      "durability": "40.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Ударная часть"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 12,
+      "name": "Улу (железо)",
+      "category": "Колюще-режущее",
+      "subcategory": "Ножи",
+      "damage": "1d4",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "wide_blade",
+        "light",
+        "cutting_tool",
+        "wearable"
+      ],
+      "durability": "70.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Лезвие"
+      ],
+      "region": "Север"
+    },
+    {
+      "id": 13,
+      "name": "Улу (камень)",
+      "category": "Колюще-режущее",
+      "subcategory": "Ножи",
+      "damage": "1d4",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "wide_blade",
+        "light",
+        "primitive",
+        "natural",
+        "cutting_tool",
+        "wearable"
+      ],
+      "durability": "25.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Лезвие"
+      ],
+      "region": "Север"
+    },
+    {
+      "id": 14,
+      "name": "Улу ману",
+      "category": "Ударно-дробящее",
+      "subcategory": "Дубины",
+      "damage": "1d8/1d10",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        {
+          "name": "heavy",
+          "bracket": "14"
+        },
+        "frightening_look",
+        "universal",
+        "destroyer"
+      ],
+      "durability": "45.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Ударная часть"
+      ],
+      "region": "Самоа"
+    },
+    {
+      "id": 15,
+      "name": "Убийца Драконов",
+      "category": "Новшества",
+      "subcategory": "ОсЗИвК",
+      "damage": "1d12",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 15.0,
+      "properties": [
+        "extra_long_blade",
+        "wide_blade",
+        "double-edged_blade",
+        {
+          "name": "super_heavy",
+          "bracket": "22"
+        },
+        "destroyer"
+      ],
+      "techniques": [
+        "Великая мельница"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Аниме"
+    },
+    {
+      "id": 16,
+      "name": "Бишоу",
+      "category": "Колюще-режущее",
+      "subcategory": "Кинжалы",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "pairs"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Китай",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 17,
+      "name": "Баллок",
+      "category": "Колюще-режущее",
+      "subcategory": "Кинжалы",
+      "damage": "1d4",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "armor_penetration_minor",
+        "double-edged_blade",
+        "thin_blade",
+        "light"
+      ],
+      "crit_chance": "18-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Скандинавия и Англия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 18,
+      "name": "Шотланский дирк",
+      "category": "Колюще-режущее",
+      "subcategory": "Ножи",
+      "damage": "1d4",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "light"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Шотландия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 19,
+      "name": "Булава",
+      "category": "Ударно-дробящее",
+      "subcategory": "Булавы",
+      "damage": "1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "destroyer",
+        {
+          "name": "heavy",
+          "bracket": "13"
+        },
+        "armor_penetration_mid"
+      ],
+      "durability": "120.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Ударная часть",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 20,
+      "name": "Палица",
+      "category": "Ударно-дробящее",
+      "subcategory": "Дубины",
+      "damage": "1d6/1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "stunning",
+        "universal",
+        "armor_penetration_minor"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Оголовье",
+        "Шипы",
+        "Рукоять"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 21,
+      "name": "Боевая коса",
+      "category": "Древковое",
+      "subcategory": "Глефы",
+      "damage": "1d8",
+      "damage_type": "рубящий",
+      "range_effective": 10.0,
+      "range_max": 10.0,
+      "properties": [
+        "destroyer",
+        {
+          "name": "heavy",
+          "bracket": "13"
+        },
+        "reach",
+        "undercutting"
+      ],
+      "techniques": [
+        "Стаскивание всадника"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Обручи крепления",
+        "Древко"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 22,
+      "name": "Гвизарма",
+      "category": "Древковое",
+      "subcategory": "Глефы",
+      "damage": "2d4",
+      "damage_type": "рубящий",
+      "range_effective": 10.0,
+      "range_max": 10.0,
+      "properties": [
+        "reach",
+        "undercutting",
+        "reverse_spike",
+        "weapon_capture"
+      ],
+      "techniques": [
+        "Стаскивание всадника"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие с шипом",
+        "Обручи крепления",
+        "Древко"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 23,
+      "name": "Копьё (камень)",
+      "category": "Древковое",
+      "subcategory": "Копья",
+      "damage": "1d4/1d6",
+      "damage_type": "колющий",
+      "range_effective": 10.0,
+      "range_max": 10.0,
+      "properties": [
+        "universal",
+        "reach",
+        "primitive",
+        "throwing"
+      ],
+      "durability": "25.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Наконечник",
+        "Древко",
+        "Противовес"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 24,
+      "name": "Шока",
+      "category": "Колюще-режущее",
+      "subcategory": "Топоры",
+      "damage": "1d6/1d8",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "traditional",
+        "universal",
+        "destroyer",
+        "armor_penetration_minor",
+        "light"
+      ],
+      "durability": "40.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Рукоять"
+      ],
+      "region": "Африка"
+    },
+    {
+      "id": 25,
+      "name": "Икакалака",
+      "category": "Колюще-режущее",
+      "subcategory": "Полутораручные мечи",
+      "damage": "1d8/1d10",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "wide_blade",
+        "universal",
+        {
+          "name": "heavy",
+          "bracket": "15"
+        },
+        "frightening_look",
+        "destroyer",
+        "double-edged_blade"
+      ],
+      "durability": "85.0",
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Африка"
+    },
+    {
+      "id": 26,
+      "name": "Топор (камень)",
+      "category": "Колюще-режущее",
+      "subcategory": "Топоры",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "throwing",
+        "universal",
+        "primitive",
+        "chopping_tool"
+      ],
+      "durability": "25.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Рукоять"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 27,
+      "name": "Соленарий",
+      "category": "Дальнобойное",
+      "subcategory": "Метательное",
+      "group": "Стрелковое\nАрбалеты",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 80.0,
+      "range_max": 320.0,
+      "properties": [
+        {
+          "name": "requires_recharging",
+          "bracket": "доп. действие"
+        },
+        "Придельная точность",
+        "armor_penetration_minor",
+        "requires_skill",
+        "traditional"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Прицел",
+        "Тетива и спуск",
+        "Ложе и стремя"
+      ],
+      "region": "Византия"
+    },
+    {
+      "id": 28,
+      "name": "Чо-ко-ну",
+      "category": "Дальнобойное",
+      "subcategory": "Метательное",
+      "group": "Стрелковое\nАрбалеты",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 165.0,
+      "range_max": 230.0,
+      "properties": [
+        {
+          "name": "high_rate_of_fire",
+          "bracket": "4"
+        },
+        {
+          "name": "shop",
+          "bracket": "11"
+        },
+        "armor_penetration_minor",
+        "requires_skill",
+        "traditional"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Магазин",
+        "Тетива",
+        "Ложе",
+        "Прицел"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 29,
+      "name": "Серп (железо)",
+      "category": "Колюще-режущее",
+      "subcategory": "Ножи",
+      "group": "Серпы",
+      "damage": "1d4",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "rending_wounds",
+        "impromptu",
+        "light",
+        "undercutting"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Рукоять"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 30,
+      "name": "Дротик"
+    },
+    {
+      "id": 31,
+      "name": "Праща",
+      "category": "Дальнобойное",
+      "subcategory": "Метательное",
+      "group": "Стрелковое",
+      "damage": "1d4",
+      "damage_type": "дробящий",
+      "range_effective": 30.0,
+      "range_max": 120.0,
+      "properties": [
+        "light",
+        "primitive",
+        "requires_skill"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Ложе",
+        "Лямки",
+        "Петли"
+      ],
+      "region": "Повсеместно"
+    },
+    {
+      "id": 32,
+      "name": "Алебарда"
+    },
+    {
+      "id": 33,
+      "name": "Боевой молот"
+    },
+    {
+      "id": 34,
+      "name": "Боевой топор"
+    },
+    {
+      "id": 35,
+      "name": "Глефа"
+    },
+    {
+      "id": 36,
+      "name": "Двуручный меч"
+    },
+    {
+      "id": 37,
+      "name": "Кнут"
+    },
+    {
+      "id": 38,
+      "name": "Молот"
+    },
+    {
+      "id": 39,
+      "name": "Моргенштерн",
+      "category": "Ударно-дробящее",
+      "subcategory": "Булавы",
+      "damage": "1d8",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "flexible",
+        "requires_skill",
+        "armor_penetration_minor"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Цепь",
+        "Ударная часть"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 40,
+      "name": "Пика"
+    },
+    {
+      "id": 41,
+      "name": "Рапира",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "group": "Фехтовальное",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "basket_guard",
+        "standard_blade",
+        "light",
+        "fencing",
+        "double-edged_blade",
+        "armor_penetration_minor",
+        "thin_blade"
+      ],
+      "crit_chance": "18-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Чашка гарды",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Европа",
+      "image": "Зона поражение норм клинок.svg"
+    },
+    {
+      "id": 42,
+      "name": "Секира",
+      "category": "Колюще-режущее",
+      "subcategory": "Топоры",
+      "damage": "1d10",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        {
+          "name": "heavy",
+          "bracket": "15"
+        },
+        "armor_penetration_mid",
+        "destroyer",
+        "wide_blade",
+        "double-edged_blade",
+        "two-handed"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Топорище",
+        "Обух"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 43,
+      "name": "Ятаган",
+      "category": "Колюще-режущее",
+      "subcategory": "Сабли",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "light",
+        "curved_blade",
+        "standard_blade"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Турция",
+      "image": "Зона поражение норм клинок.svg"
+    },
+    {
+      "id": 44,
+      "name": "Трезубец",
+      "category": "Древковое",
+      "subcategory": "Копья",
+      "damage": "1d6/1d8",
+      "damage_type": "колющий",
+      "range_effective": 10.0,
+      "range_max": 10.0,
+      "properties": [
+        "sea_wolf",
+        "armor_penetration_mid",
+        "frightening_look",
+        "reach",
+        "three_blades"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Зубцы (3 шт.)",
+        "Древко",
+        "Противовес"
+      ],
+      "region": "Античность"
+    },
+    {
+      "id": 45,
+      "name": "Цеп"
+    },
+    {
+      "id": 46,
+      "name": "Арбалет, ручной"
+    },
+    {
+      "id": 47,
+      "name": "Арбалет, тяжёлый"
+    },
+    {
+      "id": 48,
+      "name": "Длинный лук"
+    },
+    {
+      "id": 49,
+      "name": "Духовая трубка"
+    },
+    {
+      "id": 50,
+      "name": "Ударное драгунское ружьё",
+      "category": "Стрелковое",
+      "subcategory": "Пороховое",
+      "damage": "1d10",
+      "damage_type": "колющий",
+      "range_effective": 60.0,
+      "range_max": 90.0,
+      "properties": [
+        "dymnoe",
+        "noisy",
+        "long_barrel",
+        "smooth_trunk",
+        "charging_from_the_muzzle",
+        "capsule_lock",
+        {
+          "name": "requires_recharging",
+          "bracket": "доп. действие"
+        },
+        "two-handed"
+      ],
+      "durability": "140.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Стволовая группа",
+        "Замковый механизм",
+        "Ложа и прибор"
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Капсюльный пистолет",
+      "category": "Стрелковое",
+      "subcategory": "Пороховое",
+      "group": "Пистолет",
+      "damage": "1d8",
+      "damage_type": "колющий",
+      "range_effective": 30.0,
+      "range_max": 90.0,
+      "properties": [
+        "dymnoe",
+        "noisy",
+        "long_barrel",
+        "smooth_trunk",
+        "charging_from_the_muzzle",
+        "capsule_lock",
+        {
+          "name": "requires_recharging",
+          "bracket": "доп. действие"
+        },
+        "sea_wolf"
+      ],
+      "durability": "90.0",
+      "crit_chance": "20",
+      "region": "Франция 1839"
+    },
+    {
+      "id": 52,
+      "name": "Винтовка Мосина",
+      "category": "Стрелковое",
+      "subcategory": "Пороховое",
+      "group": "Винтовка",
+      "damage": "1d12",
+      "damage_type": "колющий",
+      "range_effective": 120.0,
+      "range_max": 800.0,
+      "properties": [
+        {
+          "name": "shop",
+          "bracket": "5"
+        },
+        "rifled_barrel",
+        "long_barrel",
+        "noisy",
+        "needs_cleaning",
+        "two-handed",
+        {
+          "name": "high_rate_of_fire",
+          "bracket": "6"
+        }
+      ],
+      "durability": "250.0",
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Ствол",
+        "Ствольная коробка",
+        "Затворная группа",
+        "Ударно-спусковой механизм",
+        "Магазин",
+        "Подающий механизм",
+        "Ложа",
+        "Прицел"
+      ],
+      "region": "РИ, СССР"
+    },
+    {
+      "id": 53,
+      "name": "Короткий лук",
+      "category": "Дальнобойное",
+      "subcategory": "Метательное",
+      "group": "Стрелковое",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "range_effective": 40.0,
+      "range_max": 65.0,
+      "durability": "140.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Верхнее плечо",
+        "Нижнее плечо",
+        "Верхняя прорезь",
+        "Нижняя прорезь",
+        "Рукоять",
+        "Тетива"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 54,
+      "name": "Короткий составной лук",
+      "category": "Дальнобойное",
+      "subcategory": "Метательное",
+      "group": "Стрелковое",
+      "damage": "1d6",
+      "damage_type": "колющий",
+      "durability": "180.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Верхнее плечо",
+        "Нижнее плечо",
+        "Верхнее ушко",
+        "Нижнее ушко",
+        "Верхний конец",
+        "Нижний конец",
+        "Рукоять",
+        "Тетива"
+      ],
+      "region": "Европа"
+    },
+    {
+      "id": 55,
+      "name": "Керамбит",
+      "category": "Колюще-режущее",
+      "subcategory": "Кинжалы",
+      "damage": "1d4",
+      "damage_type": "колющий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "wearable",
+        "light",
+        "secretive",
+        "pairs"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Кольцо",
+        "Рукоять"
+      ],
+      "region": "Юго-восточная азия",
+      "image": "Зона поражение мелкий клинок.svg"
+    },
+    {
+      "id": 56,
+      "name": "Саньцзегунь",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Первая секция",
+        "Вторая секция",
+        "Третья секция",
+        "Соединительные эллементы"
+      ],
+      "region": "Азия"
+    },
+    {
+      "id": 57,
+      "name": "Эрцзегунь",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Первая секция",
+        "Вторая секция",
+        "Соединительные эллементы"
+      ],
+      "region": "Азия"
+    },
+    {
+      "id": 59,
+      "name": "Каттим",
+      "category": "Ударно-дробящее",
+      "subcategory": "Кнуты",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        "flexible",
+        "combined_damage",
+        "slashing_whip",
+        "requires_skill"
+      ],
+      "durability": "75.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Ударная часть",
+        "Наконечник"
+      ],
+      "region": "Корея"
+    },
+    {
+      "id": 60,
+      "name": "Кусаригама",
+      "category": "Новшества",
+      "subcategory": "ОсЗИвК",
+      "group": "Серпы",
+      "damage": "1d6руб1d4",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        "flexible",
+        "requires_skill",
+        "combined_damage",
+        "undercutting",
+        "two-handed",
+        {
+          "name": "different_modes_those",
+          "bracket": "серп и груз"
+        }
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Груз (фундо)",
+        "Цепь (кусари)",
+        "Серп (кама)"
+      ],
+      "region": "Япония"
+    },
+    {
+      "id": 61,
+      "name": "Палка Шаоцзы\n(梢子棍)",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "flexible",
+        "requires_skill",
+        "stunning"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Рукоять",
+        "Цепь",
+        "Ударная часть"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 62,
+      "name": "Чандао \n(長刀)",
+      "category": "Колюще-режущее",
+      "subcategory": "Двуручные мечи",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 10.0,
+      "properties": [
+        "long_blade",
+        "two-handed",
+        "armor_penetration_mid",
+        "destroyer"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Китай",
+      "image": "Зона поражение длинным клинок.svg"
+    },
+    {
+      "id": 63,
+      "name": "Чжуа",
+      "category": "Древковое",
+      "subcategory": "Копья",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 10.0,
+      "properties": [
+        "reach",
+        "rending_wounds",
+        "weapon_capture",
+        "requires_skill"
+      ],
+      "techniques": [
+        "Стаскивание всадника"
+      ],
+      "crit_chance": "20",
+      "region": "Китай"
+    },
+    {
+      "id": 64,
+      "name": "Нагината",
+      "category": "Древковое",
+      "subcategory": "Глефы",
+      "damage": "1d8",
+      "damage_type": "рубящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        "reach",
+        "undercutting",
+        "requires_skill"
+      ],
+      "techniques": [
+        "Стаскивание всадника"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Лезвие",
+        "Обручи крепления",
+        "Древко",
+        "Противовес"
+      ],
+      "region": "Япония"
+    },
+    {
+      "id": 65,
+      "name": "Гладиус",
+      "category": "Колюще-режущее",
+      "subcategory": "Одноручные мечи",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "short_blade",
+        "standard_blade",
+        "armor_penetration_minor",
+        "double-edged_blade"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Римская Германия",
+      "image": "Зона поражение норм клинок.svg"
+    },
+    {
+      "id": 66,
+      "name": "Фальката",
+      "category": "Колюще-режущее",
+      "subcategory": "Сабли",
+      "damage": "1d8",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "curved_blade",
+        "wide_blade",
+        "traditional",
+        "standard_blade",
+        "universal"
+      ],
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Иберия",
+      "image": "Зона поражение норм клинок.svg"
+    },
+    {
+      "id": 67,
+      "name": "Эсток",
+      "category": "Колюще-режущее",
+      "subcategory": "Полутораручные мечи",
+      "damage": "1d8",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "universal",
+        "thin_blade",
+        "long_blade",
+        "standard_blade",
+        "armor_penetration_mid"
+      ],
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Гарда",
+        "Рукоять",
+        "Навершие"
+      ],
+      "region": "Европа",
+      "image": "Зона поражение длинным клинок.svg"
+    },
+    {
+      "id": 68,
+      "name": "Цукубо",
+      "category": "Древковое",
+      "subcategory": "Глефы",
+      "damage": "1d6",
+      "damage_type": "дробящий",
+      "properties": [
+        "reach",
+        "spiked_crossbar",
+        "non-lethal"
+      ],
+      "crit_chance": "20",
+      "region": "Япония"
+    },
+    {
+      "id": 69,
+      "name": "Тебана",
+      "category": "Колюще-режущее",
+      "subcategory": "Кулачное",
+      "damage": "1d4",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "wearable",
+        "light",
+        "natural",
+        "primitive",
+        "rending_wounds"
+      ],
+      "durability": "25.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Зубы",
+        "Переплетение",
+        "Крепления"
+      ],
+      "region": "Самоа"
+    },
+    {
+      "id": 70,
+      "name": "Лю син чуй \n(流星錘)",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d8",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        {
+          "name": "heavy",
+          "bracket": "15"
+        },
+        "flexible",
+        "requires_skill",
+        "sweeping_strike",
+        "destroyer"
+      ],
+      "techniques": [
+        "Размашистый удар сверху цепным молотом"
+      ],
+      "durability": "80.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Первый шар",
+        "Цепь",
+        "Рукоять"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 71,
+      "name": "Парный лю син чуй",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d8",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        {
+          "name": "heavy",
+          "bracket": "17"
+        },
+        "flexible",
+        "requires_skill",
+        "sweeping_strike",
+        "destroyer",
+        "double"
+      ],
+      "techniques": [
+        "Размашистый удар сверху цепным молотом"
+      ],
+      "durability": "160.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Первый шар",
+        "Цепь",
+        "Второй шар"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 72,
+      "name": "Цзебянь",
+      "category": "Ударно-дробящее",
+      "subcategory": "Боевые цепы",
+      "damage": "1d4",
+      "damage_type": "дробящий",
+      "range_effective": 10.0,
+      "range_max": 15.0,
+      "properties": [
+        "flexible",
+        {
+          "name": "sectional",
+          "bracket": "3-36"
+        },
+        "combined_damage"
+      ],
+      "durability": "80.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Кол-во секций: 3-36",
+        "Соединительные эллементы"
+      ],
+      "region": "Китай"
+    },
+    {
+      "id": 73,
+      "name": "Тэкко-каги\n(tekko-kagi, 手甲钩)",
+      "category": "Колюще-режущее",
+      "subcategory": "Кулачное",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "wearable",
+        "rending_wounds",
+        "frightening_look",
+        "secretive"
+      ],
+      "durability": "65.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Основания",
+        "Когти"
+      ],
+      "region": "Япония"
+    },
+    {
+      "id": 74,
+      "name": "Чаркам (चक्र)",
+      "category": "Стрелковое",
+      "subcategory": "Метательное",
+      "group": "Бросковое",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 30.0,
+      "range_max": 45.0,
+      "properties": [
+        "double-edged_blade",
+        "light",
+        "boomerang"
+      ],
+      "durability": "55.0",
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Округлая пластина",
+        "Центральная рукоять"
+      ],
+      "region": "Индия"
+    },
+    {
+      "id": 75,
+      "name": "Трумбаш",
+      "category": "Колюще-режущее",
+      "subcategory": "Ножи",
+      "damage": "1d6",
+      "damage_type": "рубящий",
+      "range_effective": 5.0,
+      "range_max": 5.0,
+      "properties": [
+        "double-edged_blade",
+        "light",
+        "throwing",
+        "traditional"
+      ],
+      "durability": "60.0",
+      "crit_chance": "19-20",
+      "upgrade_slots": [
+        "Клинок",
+        "Рукоять",
+        "Навершие",
+        "Отверстия для балансировки"
+      ],
+      "region": "Африка"
+    },
+    {
+      "id": 76,
+      "name": "Портативный генератор высоковольтного тока для искрового разряда",
+      "category": "Новшества",
+      "subcategory": "МИУ",
+      "damage": "1d12",
+      "damage_type": "электрический",
+      "range_effective": 5.0,
+      "range_max": 15.0,
+      "properties": [
+        {
+          "name": "heavy",
+          "bracket": "14"
+        },
+        {
+          "name": "needs_cleaning",
+          "bracket": "15"
+        },
+        "breakdown",
+        "noisy",
+        "flexible",
+        "requires_skill",
+        "armor_penetration_mid",
+        "different_modes_those",
+        "blinding_flash",
+        "chain_reaction"
+      ],
+      "durability": "140.0",
+      "crit_chance": "20",
+      "upgrade_slots": [
+        "Электростатическая машина огромной мощности",
+        "Лейденская банка",
+        "Острийный эмиттер",
+        "Разрядник",
+        "Заземляющий контур"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<svg viewBox="0 0 781 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .frame-bg { fill: var(--bg-card, #232b22); stroke: var(--accent, #b8a16e); stroke-width: 2; }
+      .frame-slot { fill: none; stroke: var(--border, #2f3a2e); stroke-width: 2; }
+      .frame-accent { fill: none; stroke: var(--accent, #b8a16e); stroke-width: 2; }
+      .frame-icon-bg { fill: var(--input-bg, #1a221a); stroke: var(--accent, #b8a16e); stroke-width: 2; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="779" height="1022" rx="20" class="frame-bg"/>
+  <rect x="14" y="18" width="320" height="36" rx="5" class="frame-slot"/>
+  <circle cx="600" cy="36" r="28" class="frame-accent"/>
+  <circle cx="660" cy="36" r="28" class="frame-accent"/>
+  <circle cx="720" cy="36" r="28" class="frame-accent"/>
+  <rect x="14" y="90" width="280" height="40" rx="5" class="frame-slot"/>
+  <rect x="304" y="90" width="240" height="40" rx="5" class="frame-slot"/>
+  <rect x="554" y="90" width="213" height="40" rx="5" class="frame-slot"/>
+  <rect x="14" y="142" width="753" height="40" rx="5" class="frame-slot"/>
+  <rect x="15" y="196" width="751" height="260" rx="5" class="frame-slot"/>
+  <rect x="24" y="470" width="733" height="240" rx="5" class="frame-slot"/>
+  <rect x="21" y="730" width="64" height="64" class="frame-icon-bg"/>
+</svg>

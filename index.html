@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лист персонажа</title>
+<link rel="stylesheet" href="appearance-editor.css">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="magic-spells.css?v=2">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<style>
+  #spellDebugModal.modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  #spellDebugModal.modal-overlay.active {
+    display: flex;
+  }
+  #spellDebugModal .modal.modal-wide {
+    width: 95vw;
+    margin: 0;
+  }
+  #spellDebugModal .debug-field input,
+  #spellDebugModal .debug-field textarea,
+  #spellDebugModal .debug-field select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+
+<!-- ========================= -->
+<!-- Модули приложения         -->
+<!-- ========================= -->
+
+<!-- Ядро: данные, формулы, утилиты (должен загружаться первым) -->
+<script src="modules/core.js"></script>
+
+<!-- Интерфейс: табы, сайдбар, модалки -->
+<script src="modules/ui.js"></script>
+
+<!-- Навыки: сортировка, фильтры, владение -->
+<script src="modules/skills.js"></script>
+
+<!-- Бой: оружие, броня, естественное снаряжение -->
+<script src="modules/combat.js"></script>
+
+<!-- Canvas-инвентарь: перетаскивание, хранилища -->
+<script src="modules/inventory.js"></script>
+
+<!-- Магия: школы, чародейство, заклинания, банк душ -->
+<script src="modules/magic.js"></script>
+
+<!-- Псионика: дисциплины и приёмы -->
+<script src="modules/psionics.js"></script>
+
+<!-- Черты персонажа и личность -->
+<script src="modules/features.js"></script>
+
+<!-- Внешность -->
+<script src="modules/appearance-editor.js"></script>
+
+<!-- Точка входа: инициализация и запуск (должна загружаться последней) -->
+<script src="app.js"></script>
+
+<!-- ========================= -->
+<!-- Боковая навигация         -->
+<!-- ========================= -->
+<aside class="sidebar" id="sidebar">
+  <header class="sidebar-header">
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Свернуть навигацию">◀</button>
+    <h2 class="sidebar-title">Навигация</h2>
+  </header>
+  <div class="sidebar-content" id="sidebarContent"></div>
+</aside>
+
+<!-- ========================= -->
+<!-- Основной контент          -->
+<!-- ========================= -->
+<main class="container">
+
+  <!-- ========================= -->
+  <!-- Навигация вкладок         -->
+  <!-- ========================= -->
+  <nav class="tabs-nav" aria-label="Навигация по листу персонажа">
+    <button class="tab-btn active" id="tab-main-btn" data-tab="tab-main" aria-controls="tab-main" aria-selected="true">Основная информация</button>
+    <button class="tab-btn" id="tab-combat-btn" data-tab="tab-combat" aria-controls="tab-combat" aria-selected="false">Оружие и броня</button>
+    <button class="tab-btn" id="tab-inventory-btn" data-tab="tab-inventory" aria-controls="tab-inventory" aria-selected="false">Инвентарь</button>
+    <button class="tab-btn" id="tab-personality-btn" data-tab="tab-personality" aria-controls="tab-personality" aria-selected="false">Личность</button>
+    <button class="tab-btn" id="tab-traits-btn" data-tab="tab-traits" aria-controls="tab-traits" aria-selected="false">Умения и способности</button>
+    <button class="tab-btn" id="tab-notes-btn" data-tab="tab-notes" aria-controls="tab-notes" aria-selected="false">Заметки</button>
+    <button class="tab-btn hidden" id="tab-appearance-btn" data-tab="tab-appearance" aria-controls="tab-appearance" aria-selected="false">Внешность</button>
+    <button class="tab-btn hidden" id="tab-magic-btn" data-tab="tab-magic" aria-controls="tab-magic" aria-selected="false">Магия</button>
+    <button class="tab-btn hidden" id="tab-psionic-btn" data-tab="tab-psionic" aria-controls="tab-psionic" aria-selected="false">Псионика</button>
+  </nav>
+
+  <!-- ========================= -->
+  <!-- TAB: Основная информация  -->
+  <!-- ========================= -->
+  <section class="tab-content active" id="tab-main" aria-labelledby="tab-main-btn">
+
+    <!-- Лист персонажа -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Лист персонажа</h2>
+      </header>
+      <div class="fields-grid fields-grid-8">
+        <div class="field-group">
+          <label class="field-label" for="character-name">Имя</label>
+          <input type="text" class="field-input" id="character-name" data-path="name" placeholder="Введите имя...">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="species-input">Происхождение</label>
+          <div class="autocomplete-wrap">
+            <input type="text" class="field-input" data-path="species" id="speciesInput" placeholder="Выберите вид...">
+            <div class="autocomplete-dropdown" id="speciesDropdown"></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="race-input">Раса</label>
+          <div class="autocomplete-wrap">
+            <input type="text" class="field-input" data-path="race" id="raceInput" placeholder="Выберите расу...">
+            <div class="autocomplete-dropdown" id="raceDropdown"></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="character-level">Уровень</label>
+          <input type="number" class="field-input" id="character-level" data-path="level" min="1" max="20">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="character-xp">Опыт</label>
+          <div class="xp-group">
+            <input type="number" class="field-input" id="character-xp" data-path="xp">
+            <span class="xp-separator">/</span>
+            <input type="text" class="field-input" data-computed="xpNext" readonly>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Бонус Мастерства</label>
+          <div class="bonus-badge">
+            <div class="bonus-value" data-computed="profBonus">+2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hp-row fields-grid-5">
+        <div class="field-group">
+          <label class="field-label bonus-label-row">
+            <span>Хиты</span>
+            <span class="bonus-cog" onclick="openBonusModal('hp', 'Макс. хиты')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="hp-split flex-gap-sm">
+            <div class="input-with-spinner">
+            <input type="number" class="field-input hp-current flex-center" data-path="hp.current" min="0" placeholder="Тек.">
+            <div class="custom-spinners">
+              <button type="button" class="spinner-btn spinner-up" data-delta="1" tabindex="-1">▲</button>
+              <button type="button" class="spinner-btn spinner-down" data-delta="-1" tabindex="-1">▼</button>
+            </div>
+          </div>
+            <span class="slash-sep">/</span>
+            <div class="field-input flex-center bold" data-computed="hp">—</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="hp-temp">Временные хиты</label>
+          <input type="number" class="field-input hp-temp" id="hp-temp" data-path="hp.temp" min="0" placeholder="—">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Класс доспеха</label>
+          <div class="field-input flex-center bold" data-computed="ac">—</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label bonus-label-row">
+            <span>Инициатива</span>
+            <span class="bonus-cog" onclick="openBonusModal('initiative', 'Инициатива')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="field-input flex-center bold" data-computed="initiative">—</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label bonus-label-row">
+            <span>Проверка Воли</span>
+            <span class="bonus-cog" onclick="openBonusModal('will', 'Проверка Воли')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="field-input flex-center bold" data-computed="willSave">—</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label bonus-label-row">
+            <span>Скорость ходьбы</span>
+            <span class="bonus-cog" onclick="openBonusModal('speedWalk', 'Скорость ходьбы')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="field-input flex-center bold" data-computed="speedWalk">—</div>
+        </div>
+        <div class="field-group hidden" id="mainManaGroup">
+          <label class="field-label bonus-label-row">
+            <span>Мана</span>
+            <span class="bonus-cog" onclick="openBonusModal('manaMax', 'Максимум маны')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="hp-split flex-gap-sm">
+            <div class="input-with-spinner">
+            <input type="number" class="field-input flex-center" id="mainManaCurrent" placeholder="Тек." min="0" oninput="updateMainManaCurrent(this.value)">
+            <div class="custom-spinners">
+              <button type="button" class="spinner-btn spinner-up" data-delta="1" tabindex="-1">▲</button>
+              <button type="button" class="spinner-btn spinner-down" data-delta="-1" tabindex="-1">▼</button>
+            </div>
+          </div>
+            <span class="slash-sep">/</span>
+            <div class="field-input flex-center bold" data-computed="manaMax">—</div>
+          </div>
+        </div>
+        <div class="field-group hidden" id="mainPsionicGroup">
+          <label class="field-label bonus-label-row">
+            <span>Псионика</span>
+            <span class="bonus-cog" onclick="openBonusModal('ppMax', 'Максимум псионики')" title="Настроить бонусы">⚙️</span>
+          </label>
+          <div class="hp-split flex-gap-sm">
+            <div class="input-with-spinner">
+            <input type="number" class="field-input flex-center" id="mainPpCurrent" placeholder="Тек." min="0" oninput="updateMainPpCurrent(this.value)">
+            <div class="custom-spinners">
+              <button type="button" class="spinner-btn spinner-up" data-delta="1" tabindex="-1">▲</button>
+              <button type="button" class="spinner-btn spinner-down" data-delta="-1" tabindex="-1">▼</button>
+            </div>
+          </div>
+            <span class="slash-sep">/</span>
+            <div class="field-input flex-center bold" data-computed="ppMax">—</div>
+          </div>
+        </div>
+        <div class="field-group" id="mainInspirationGroup">
+          <label class="field-label">Вдохновение</label>
+          <div class="inspiration-grid">
+            <button type="button" class="inspiration-cell" data-ability="str" onclick="toggleInspiration('str')" title="Сила">
+              <span class="inspiration-text">СИЛ</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+            <button type="button" class="inspiration-cell" data-ability="dex" onclick="toggleInspiration('dex')" title="Ловкость">
+              <span class="inspiration-text">ЛОВ</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+            <button type="button" class="inspiration-cell" data-ability="con" onclick="toggleInspiration('con')" title="Телосложение">
+              <span class="inspiration-text">ТЕЛ</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+            <button type="button" class="inspiration-cell" data-ability="int" onclick="toggleInspiration('int')" title="Интеллект">
+              <span class="inspiration-text">ИНТ</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+            <button type="button" class="inspiration-cell" data-ability="wis" onclick="toggleInspiration('wis')" title="Мудрость">
+              <span class="inspiration-text">МДР</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+            <button type="button" class="inspiration-cell" data-ability="cha" onclick="toggleInspiration('cha')" title="Харизма">
+              <span class="inspiration-text">ХАР</span>
+              <img src="icons/inspiration.svg" class="inspiration-icon" alt="">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Характеристики -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Характеристики</h2>
+      </header>
+      <div class="abilities-grid">
+        <div class="ability-card">
+          <div class="ability-name">Сила</div>
+          <input type="number" class="ability-score" data-path="abilities.str" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.str">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.str"></div>
+        </div>
+        <div class="ability-card">
+          <div class="ability-name">Ловкость</div>
+          <input type="number" class="ability-score" data-path="abilities.dex" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.dex">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.dex"></div>
+        </div>
+        <div class="ability-card">
+          <div class="ability-name">Телосложение</div>
+          <input type="number" class="ability-score" data-path="abilities.con" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.con">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.con"></div>
+        </div>
+        <div class="ability-card">
+          <div class="ability-name">Интеллект</div>
+          <input type="number" class="ability-score" data-path="abilities.int" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.int">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.int"></div>
+        </div>
+        <div class="ability-card">
+          <div class="ability-name">Мудрость</div>
+          <input type="number" class="ability-score" data-path="abilities.wis" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.wis">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.wis"></div>
+        </div>
+        <div class="ability-card">
+          <div class="ability-name">Харизма</div>
+          <input type="number" class="ability-score" data-path="abilities.cha" min="1" max="30">
+          <div class="ability-mod" data-computed="mod.cha">+0</div>
+          <div class="ability-bonus">+<input type="number" data-path="bonuses.cha"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Спасброски -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Спасброски</h2>
+      </header>
+      <div class="abilities-grid" id="savesGrid">
+        <div class="save-card">
+          <div class="save-name">Сила</div>
+          <div class="save-value" data-computed="save.str">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="str" data-prof="0" onclick="setSaveProf('str', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="str" data-prof="1" onclick="setSaveProf('str', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="str" data-prof="2" onclick="setSaveProf('str', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="str" data-prof="3" onclick="setSaveProf('str', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.str', 'Спасбросок Силы')" title="Настроить бонусы">⚙️</span>
+        </div>
+        <div class="save-card">
+          <div class="save-name">Ловкость</div>
+          <div class="save-value" data-computed="save.dex">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="dex" data-prof="0" onclick="setSaveProf('dex', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="dex" data-prof="1" onclick="setSaveProf('dex', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="dex" data-prof="2" onclick="setSaveProf('dex', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="dex" data-prof="3" onclick="setSaveProf('dex', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.dex', 'Спасбросок Ловкости')" title="Настроить бонусы">⚙️</span>
+        </div>
+        <div class="save-card">
+          <div class="save-name">Телосложение</div>
+          <div class="save-value" data-computed="save.con">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="con" data-prof="0" onclick="setSaveProf('con', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="con" data-prof="1" onclick="setSaveProf('con', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="con" data-prof="2" onclick="setSaveProf('con', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="con" data-prof="3" onclick="setSaveProf('con', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.con', 'Спасбросок Телосложения')" title="Настроить бонусы">⚙️</span>
+        </div>
+        <div class="save-card">
+          <div class="save-name">Интеллект</div>
+          <div class="save-value" data-computed="save.int">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="int" data-prof="0" onclick="setSaveProf('int', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="int" data-prof="1" onclick="setSaveProf('int', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="int" data-prof="2" onclick="setSaveProf('int', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="int" data-prof="3" onclick="setSaveProf('int', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.int', 'Спасбросок Интеллекта')" title="Настроить бонусы">⚙️</span>
+        </div>
+        <div class="save-card">
+          <div class="save-name">Мудрость</div>
+          <div class="save-value" data-computed="save.wis">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="wis" data-prof="0" onclick="setSaveProf('wis', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="wis" data-prof="1" onclick="setSaveProf('wis', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="wis" data-prof="2" onclick="setSaveProf('wis', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="wis" data-prof="3" onclick="setSaveProf('wis', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.wis', 'Спасбросок Мудрости')" title="Настроить бонусы">⚙️</span>
+        </div>
+        <div class="save-card">
+          <div class="save-name">Харизма</div>
+          <div class="save-value" data-computed="save.cha">+0</div>
+          <div class="save-prof">
+            <button class="prof-btn" data-save="cha" data-prof="0" onclick="setSaveProf('cha', 0)" title="Нет владения">0</button>
+            <button class="prof-btn" data-save="cha" data-prof="1" onclick="setSaveProf('cha', 1)" title="БМ/2">½</button>
+            <button class="prof-btn" data-save="cha" data-prof="2" onclick="setSaveProf('cha', 2)" title="БМ">БМ</button>
+            <button class="prof-btn" data-save="cha" data-prof="3" onclick="setSaveProf('cha', 3)" title="БМ×2">2×</button>
+          </div>
+          <span class="save-bonus-cog" onclick="openBonusModal('save.cha', 'Спасбросок Харизмы')" title="Настроить бонусы">⚙️</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Навыки -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Навыки</h2>
+      </header>
+      <div class="skills-toolbar">
+        <span class="skills-toolbar-label">Сортировка:</span>
+        <button class="skills-sort-btn active" data-sort="name" onclick="sortSkills('name')">
+          Название <span class="sort-arrow">▲</span>
+        </button>
+        <button class="skills-sort-btn" data-sort="char" onclick="sortSkills('char')">
+          Хар-ка <span class="sort-arrow"></span>
+        </button>
+        <button class="skills-sort-btn" data-sort="type" onclick="sortSkills('type')">
+          Тип <span class="sort-arrow"></span>
+        </button>
+        <button class="skills-sort-btn" data-sort="mod" onclick="sortSkills('mod')">
+          Модификатор <span class="sort-arrow"></span>
+        </button>
+        <input type="text" class="skills-search" id="skillsSearch" placeholder="🔍 Поиск..." oninput="filterSkills()">
+        <div class="skills-filter-group">
+          <button class="skills-filter-btn active" data-filter="all" onclick="filterType('all')">Все</button>
+          <button class="skills-filter-btn" data-filter="active" onclick="filterType('active')">Активные</button>
+          <button class="skills-filter-btn active-passive" data-filter="passive" onclick="filterType('passive')">Пассивные</button>
+          <button class="skills-filter-btn" data-filter="multi" onclick="filterType('multi')">Мульти</button>
+        </div>
+      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <!-- Производные характеристики -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Производные характеристики</h2>
+      </header>
+      <div class="derived-grid">
+        <div class="derived-card">
+          <div class="derived-name">Класс Брони (AC)</div>
+          <div class="derived-value" data-computed="ac">—</div>
+          <div class="derived-formula">база + min(ловк, потолок) + щит</div>
+        </div>
+        <div class="derived-card">
+          <div class="derived-name">Грузоподъёмность</div>
+          <div class="derived-value" data-computed="carry">—</div>
+          <div class="derived-formula">(сила + тел) × 3</div>
+        </div>
+        <div class="derived-card">
+          <div class="derived-name">Скорость плавания</div>
+          <div class="derived-value" data-computed="speedSwim">—</div>
+          <div class="derived-formula">ловкость × 2</div>
+        </div>
+        <div class="derived-card">
+          <div class="derived-name">Скорость лазания</div>
+          <div class="derived-value" data-computed="speedClimb">—</div>
+          <div class="derived-formula">ловкость × 2</div>
+        </div>
+        <div class="derived-card hidden" id="flyCard">
+          <div class="derived-name">Скорость полёта</div>
+          <div class="derived-value" data-computed="speedFly">—</div>
+          <div class="derived-formula">зависит от расы</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JSON-данные -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">JSON-данные персонажа</h2>
+      </header>
+      <div class="json-controls">
+        <button class="btn" onclick="exportJSON()">⬇️ Сохранить в JSON</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">⬆️ Загрузить из JSON</button>
+        <input type="file" id="fileInput" accept=".json" class="hidden" onchange="importJSON(this)">
+        <button class="btn btn-secondary" onclick="resetCharacter()">🔄 Сбросить</button>
+      </div>
+      <pre class="json-preview" id="jsonPreview"></pre>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Оружие и броня       -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-combat" aria-labelledby="tab-combat-btn">
+
+    <!-- Параметры оружия -->
+    <section class="card">
+      <header class="card-header weapon-header">
+        <h2 class="card-title">Параметры оружия</h2>
+        <div class="spacer"></div>
+        <div class="slot-tabs weapon-slots" id="weaponSlots">
+          <button class="weapon-slot-btn active" data-slot="0" onclick="switchWeaponSlot(0)">1</button>
+          <button class="weapon-slot-btn" data-slot="1" onclick="switchWeaponSlot(1)">2</button>
+          <button class="weapon-slot-btn" data-slot="2" onclick="switchWeaponSlot(2)">3</button>
+          <button class="weapon-slot-btn" data-slot="3" onclick="switchWeaponSlot(3)">4</button>
+          <button class="weapon-slot-btn" data-slot="4" onclick="switchWeaponSlot(4)">5</button>
+        </div>
+      </header>
+
+      <div class="weapon-form">
+        <div class="fields-grid fields-grid-6-2fr weapon-fields">
+          <div class="field-group weapon-autocomplete-wrap">
+            <label class="field-label" for="wm-name">Название</label>
+            <input type="text" class="field-input" id="wmName" placeholder="Введите название..." autocomplete="off">
+            <div class="autocomplete-dropdown" id="wmNameDropdown"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-scale">Скейл</label>
+            <select class="field-input" id="wmScale">
+              <option value="" disabled selected hidden>Выберите</option>
+              <option value="str">СИЛ</option>
+              <option value="dex">ЛОВ</option>
+              <option value="con">ТЕЛ</option>
+              <option value="int">ИНТ</option>
+              <option value="wis">МДР</option>
+              <option value="cha">ХАР</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-prof">Владение</label>
+            <select class="field-input" id="wmProf">
+              <option value="" disabled selected hidden>Выберите</option>
+              <option value="0">0 — Нет</option>
+              <option value="1">1 — БМ/2</option>
+              <option value="2">2 — БМ</option>
+              <option value="3">3 — БМ×2</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-hit">Бонус попадания</label>
+            <input type="text" class="field-input flex-center bold" id="wmHitBonus" readonly placeholder="—">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-damage">Урон</label>
+            <input type="text" class="field-input" id="wmDamage" placeholder="1d8">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-crit">Крит</label>
+            <input type="text" class="field-input" id="wmCrit" placeholder="20">
+          </div>
+        </div>
+
+        <div class="fields-grid fields-grid-4-1-1-2-2 mt-16 weapon-fields">
+          <div class="field-group">
+            <label class="field-label" for="wm-eff-range">Э.Д.А.</label>
+            <input type="text" class="field-input" id="wmEffRange" placeholder="5 фт.">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-max-range">М.Д.А.</label>
+            <input type="text" class="field-input" id="wmMaxRange" placeholder="10 фт.">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-category">Категория</label>
+            <input type="text" class="field-input" id="wmCategory" placeholder="—">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-subcategory">Подкатегория / Группа</label>
+            <input type="text" class="field-input" id="wmSubcategory" placeholder="—">
+          </div>
+        </div>
+
+        <div class="fields-grid fields-grid-4 mt-16 weapon-fields">
+          <div class="field-group">
+            <label class="field-label">Прочность</label>
+            <div class="durability-split flex-gap-sm">
+              <input type="number" class="field-input flex-center" id="wmDurabilityCurrent" placeholder="Тек.">
+              <span class="slash-sep">/</span>
+              <input type="number" class="field-input flex-center" id="wmDurabilityMax" placeholder="Макс.">
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-region">Регион</label>
+            <input type="text" class="field-input" id="wmRegion" placeholder="—">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-upgrades">Слоты улучшений</label>
+            <input type="text" class="field-input" id="wmUpgradeSlots" readonly placeholder="—">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="wm-techniques">Техники</label>
+            <input type="text" class="field-input" id="wmTechniques" readonly placeholder="—">
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <div class="field-label mb-10">Свойства оружия</div>
+          <div class="weapon-prop-list" id="wmPropList"></div>
+        </div>
+
+        <div class="field-group mt-16">
+          <label class="field-label" for="wm-prop-desc">Описание свойств</label>
+          <textarea class="field-input" id="wmPropDesc" rows="3" placeholder="Выберите свойства для просмотра..."></textarea>
+        </div>
+
+        <div class="field-group mt-12">
+          <label class="field-label" for="wm-modifications">Модификации / Слоты</label>
+          <textarea class="field-input" id="wmModifications" rows="2" placeholder="Техники и слоты улучшений..."></textarea>
+        </div>
+
+        <div class="field-group mt-12">
+          <label class="field-label" for="wm-notes">Заметки</label>
+          <textarea class="field-input" id="wmNotes" rows="2" placeholder="Дополнительные заметки..."></textarea>
+        </div>
+
+        <div class="json-controls mt-20">
+          <button class="btn btn-secondary" onclick="clearWeaponSlot()">Очистить слот</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Броня -->
+    <section class="card">
+      <header class="card-header armor-header">
+        <h2 class="card-title">Броня</h2>
+        <div class="spacer"></div>
+        <div class="slot-tabs armor-slots" id="armorSlots">
+          <button class="armor-slot-btn active" data-slot="0" onclick="switchArmorSlot(0)">1</button>
+          <button class="armor-slot-btn" data-slot="1" onclick="switchArmorSlot(1)">2</button>
+          <button class="armor-slot-btn" data-slot="2" onclick="switchArmorSlot(2)">3</button>
+          <button class="armor-slot-btn" data-slot="3" onclick="switchArmorSlot(3)">4</button>
+          <button class="armor-slot-btn" data-slot="4" onclick="switchArmorSlot(4)">5</button>
+        </div>
+    <button class="shield-toggle-btn" id="shieldToggleBtn" onclick="toggleShield()" title="Щит" style="display:none;">🛡️</button>
+      </header>
+
+      <div class="armor-ac-row">
+        <div class="bonus-badge inline-flex">
+          <div class="bonus-label no-mb small">Класс доспеха</div>
+          <div class="bonus-value large" data-computed="ac">—</div>
+        </div>
+      </div>
+
+      <div id="armorList"></div>
+
+      <div class="mt-16">
+        <button class="btn btn-small w-full" onclick="addArmorCard()">Добавить доспех</button>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Инвентарь            -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-inventory" aria-labelledby="tab-inventory-btn">
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Инвентарь</h2>
+      </header>
+      <div class="inventory-toolbar">
+        <button class="btn btn-small" onclick="inventoryApp.addStorage()">Добавить хранилище</button>
+        <button class="btn btn-small btn-orange" onclick="inventoryApp.addItem()">Добавить предмет</button>
+        <button class="btn btn-small btn-secondary" onclick="inventoryApp.openModifiers()">Модификаторы</button>
+        <div class="carry-display" id="carryDisplay">Грузоподъёмность: 0.0/0.0 кг</div>
+        <label class="unit-toggle">
+          <input type="checkbox" id="unitToggle" onchange="inventoryApp.toggleUnits()">
+          <span>фунты</span>
+        </label>
+      </div>
+      <div class="inventory-canvas-wrap">
+        <canvas id="inventoryCanvas" width="900" height="500"></canvas>
+        <div class="trash-zone" id="trashZone">🗑️ Мусорка</div>
+      </div>
+      <div class="inventory-hint">
+        ЛКМ — перемещать предметы • ПКМ — меню (повернуть/удалить) • Двойной клик — редактировать
+      </div>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Личность             -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-personality" aria-labelledby="tab-personality-btn">
+
+    <!-- Черты персонажа -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Черты персонажа</h2>
+      </header>
+      <div class="features-grid">
+        <div class="feature-column">
+          <h3 class="feature-column-title">Личность</h3>
+          <div class="feature-list" id="features-personality">
+            <div class="feature-placeholder">Черты характера, убеждения, привязанности, слабости…</div>
+          </div>
+          <button class="btn btn-small" onclick="addFeature('personality')">+ Добавить</button>
+        </div>
+        <div class="feature-column">
+          <h3 class="feature-column-title">Физическое</h3>
+          <div class="feature-list" id="features-physical">
+            <div class="feature-placeholder">Боевые стили, движение, телосложение, рефлексы…</div>
+          </div>
+          <button class="btn btn-small" onclick="addFeature('physical')">+ Добавить</button>
+        </div>
+        <div class="feature-column">
+          <h3 class="feature-column-title">Сверхъестественное</h3>
+          <div class="feature-list" id="features-supernatural">
+            <div class="feature-placeholder">Магические дарования, проклятия, благословения…</div>
+          </div>
+          <button class="btn btn-small" onclick="addFeature('supernatural')">+ Добавить</button>
+        </div>
+        <div class="feature-column">
+          <h3 class="feature-column-title">Опыт</h3>
+          <div class="feature-list" id="features-experience">
+            <div class="feature-placeholder">Профессии, навыки, знания, ремёсла…</div>
+          </div>
+          <button class="btn btn-small" onclick="addFeature('experience')">+ Добавить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Детали персонажа -->
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Детали персонажа</h2>
+      </header>
+      <div class="personality-details-grid">
+        <div class="field-group">
+          <label class="field-label" for="personality-background">Предыстория</label>
+          <textarea class="field-input personality-textarea" id="personality-background" data-path="personality.background" rows="6" placeholder="Расскажите о прошлом персонажа, его воспитании, ключевых событиях жизни..."></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="personality-beliefs">Убеждения</label>
+          <textarea class="field-input personality-textarea" id="personality-beliefs" data-path="personality.beliefs" rows="6" placeholder="Мировоззрение, философия, принципы, моральные ориентиры..."></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="personality-fears">Страхи</label>
+          <textarea class="field-input personality-textarea" id="personality-fears" data-path="personality.fears" rows="6" placeholder="Фобии, травмы, табу, внутренние конфликты..."></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="personality-goals">Цели и прочие</label>
+          <textarea class="field-input personality-textarea" id="personality-goals" data-path="personality.goals" rows="6" placeholder="Краткосрочные и долгосрочные цели, мотивация, желания, примечания..."></textarea>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Умения и способности -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-traits" aria-labelledby="tab-traits-btn">
+
+    <!-- Подвкладки -->
+    <div class="magic-subtabs" id="traitsSubtabsContainer">
+      <button class="sub-tab-btn active" data-subtab="traits-abilities" onclick="switchTraitsSubtab('traits-abilities')">Умения и таланты</button>
+      <button class="sub-tab-btn" data-subtab="traits-tree" onclick="switchTraitsSubtab('traits-tree')">Дерево умений</button>
+      <button class="sub-tab-btn" data-subtab="traits-racial" onclick="switchTraitsSubtab('traits-racial')">Расовые и видовые черты</button>
+      <button class="sub-tab-btn" data-subtab="traits-proficiencies" onclick="switchTraitsSubtab('traits-proficiencies')">Владения</button>
+    </div>
+
+    <!-- Подвкладка: Умения и таланты -->
+    <div class="sub-tab-content active" id="traits-abilities">
+      <section class="card" id="abilitiesCard">
+        <header class="card-header">
+          <h2 class="card-title">Умения и таланты</h2>
+        </header>
+        <div class="abilities-list" id="abilitiesList">
+          <div class="ability-row-placeholder">Пассивные и активные умения, таланты, черты, способности класса...</div>
+        </div>
+        <button class="btn btn-small mt-12" onclick="addAbilityRow()">+ Добавить умение</button>
+      </section>
+    </div>
+
+    <!-- Подвкладка: Дерево умений -->
+    <div class="sub-tab-content" id="traits-tree">
+      <section class="card">
+        <header class="card-header">
+          <h2 class="card-title">Дерево умений</h2>
+        </header>
+        <div class="placeholder-text">Раздел в разработке.<br>Здесь будет интерактивное древо талантов с визуальными связями между умениями.</div>
+      </section>
+    </div>
+
+    <!-- Подвкладка: Расовые и видовые черты -->
+    <div class="sub-tab-content" id="traits-racial">
+      <section class="card" id="traitsCard">
+        <header class="card-header">
+          <h2 class="card-title">Расовые и видовые черты</h2>
+        </header>
+        <div id="traitsContent"></div>
+      </section>
+    </div>
+
+
+    <!-- Подвкладка: Владения -->
+<div class="sub-tab-content" id="traits-proficiencies">
+  <section class="card">
+    <header class="card-header">
+      <h2 class="card-title">Языки</h2>
+    </header>
+    <div class="proficiency-list" id="prof-languages"></div>
+    <button class="btn btn-small mt-12" onclick="addProficiency('languages')">+ Добавить язык</button>
+  </section>
+  <section class="card">
+    <header class="card-header">
+      <h2 class="card-title">Оружие</h2>
+    </header>
+    <div class="proficiency-list" id="prof-weapons"></div>
+    <button class="btn btn-small mt-12" onclick="addProficiency('weapons')">+ Добавить владение оружием</button>
+  </section>
+  <section class="card">
+    <header class="card-header">
+      <h2 class="card-title">Доспехи</h2>
+    </header>
+    <div class="proficiency-list" id="prof-armor"></div>
+    <button class="btn btn-small mt-12" onclick="addProficiency('armor')">+ Добавить владение доспехами</button>
+  </section>
+  <section class="card">
+    <header class="card-header">
+      <h2 class="card-title">Инструменты</h2>
+    </header>
+    <div class="proficiency-list" id="prof-tools"></div>
+    <button class="btn btn-small mt-12" onclick="addProficiency('tools')">+ Добавить владение инструментом</button>
+  </section>
+</div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Заметки              -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-notes" aria-labelledby="tab-notes-btn">
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Заметки</h2>
+      </header>
+      <div class="toggle-group">
+        <button class="toggle-btn" data-toggle="isAppearance" onclick="toggleAppearance()">🎨 Внешность</button>
+        <button class="toggle-btn" data-toggle="isMage" onclick="toggleClass('isMage')">🧙 Маг</button>
+        <button class="toggle-btn" data-toggle="isPsionic" onclick="toggleClass('isPsionic')">🧠 Псионик</button>
+      </div>
+      <textarea class="field-input" data-path="notes" rows="18" placeholder="Заметки о персонаже..."></textarea>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Внешность            -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-appearance" aria-labelledby="tab-appearance-btn">
+    <section class="card appearance-editor-card">
+      <!-- Шапка редактора -->
+      <div class="appearance-top">
+        <div class="skin-color-group">
+          <label class="field-label" for="skinColor">ЦВЕТ КОЖИ</label>
+          <input type="color" class="skin-color-input" value="#c68642" id="skinColor">
+        </div>
+        <div class="appearance-actions">
+          <button class="icon-btn" id="appRefresh" title="Обновить">↻</button>
+          <div class="age-badge" id="ageToggle">18+</div>
+          <button class="icon-btn" id="appSearch" title="Поиск">🔍</button>
+        </div>
+      </div>
+
+      <!-- Тело редактора -->
+      <div class="appearance-body">
+        <!-- Левая панель — параметры -->
+        <div class="appearance-left">
+
+          <!-- ПОЛ -->
+          <div class="appearance-section">
+            <h3 class="appearance-section-title">ПОЛ</h3>
+            <div class="gender-group">
+              <input type="radio" name="gender" id="g-male" class="gender-radio" value="male">
+              <label for="g-male" class="gender-label" title="Мужчина" style="bold">♂</label>
+
+              <input type="radio" name="gender" id="g-female" class="gender-radio" value="female">
+              <label for="g-female" class="gender-label" title="Женщина" style="bold">♀</label>
+
+              <input type="radio" name="gender" id="g-herm" class="gender-radio" value="hermaphrodite">
+              <label for="g-herm" class="gender-label" title="Гермафродит" style="bold">⚥</label>
+
+              <input type="radio" name="gender" id="g-other" class="gender-radio" value="other">
+              <label for="g-other" class="gender-label unknown" title="Иное" style="bold">●</label>
+            </div>
+          </div>
+
+          <!-- ВОЗРАСТ -->
+          <div class="appearance-section">
+            <h3 class="appearance-section-title">ВОЗРАСТ</h3>
+            <select class="field-input styled-select" id="ageSelect">
+              <option value="" disabled selected>ВЫБОР ВОЗРАСТНОЙ ГРУППЫ</option>
+              <option value="infant">Младенец</option>
+              <option value="child">Ребёнок</option>
+              <option value="teen">Подросток</option>
+              <option value="adult">Взрослый</option>
+              <option value="senior">Пенсионер</option>
+            </select>
+          </div>
+
+          <!-- ВИД И РАСА -->
+          <div class="appearance-section">
+            <h3 class="appearance-section-title">ВИД И РАСА</h3>
+            <div class="appearance-row-2">
+              <input type="text" class="field-input" id="appearance-species" placeholder="Вид" readonly>
+              <input type="text" class="field-input" id="appearance-race" placeholder="Раса" readonly>
+            </div>
+          </div>
+
+          <!-- ТИП ТЕЛОСЛОЖЕНИЯ -->
+          <div class="appearance-section">
+            <h3 class="appearance-section-title">ТИП ТЕЛОСЛОЖЕНИЯ</h3>
+            <select class="field-input styled-select" id="bodyType">
+              <option value="" disabled selected>ВЫБОР ТИПА ТЕЛОСЛОЖЕНИЯ</option>
+              <option value="ectomorph">Эктоморф</option>
+              <option value="mesomorph">Мезоморф</option>
+              <option value="endomorph">Эндоморф</option>
+            </select>
+          </div>
+
+          <!-- ТРАВМА -->
+          <div class="appearance-section dynamic-section" id="traumaSection">
+            <div class="section-header">
+              <h3 class="appearance-section-title">ТРАВМА</h3>
+              <button class="btn btn-small add-btn" onclick="addRow('trauma')">+</button>
+            </div>
+            <div id="traumaList"></div>
+          </div>
+
+          <!-- МУТАЦИИ -->
+          <div class="appearance-section dynamic-section" id="mutationSection">
+            <div class="section-header">
+              <h3 class="appearance-section-title">МУТАЦИИ</h3>
+              <button class="btn btn-small add-btn" onclick="addRow('mutation')">+</button>
+            </div>
+            <div id="mutationList"></div>
+          </div>
+
+          <!-- МОДИФИКАЦИИ -->
+          <div class="appearance-section dynamic-section" id="modSection">
+            <div class="section-header">
+              <h3 class="appearance-section-title">МОДИФИКАЦИИ</h3>
+              <button class="btn btn-small add-btn" onclick="addRow('modification')">+</button>
+            </div>
+            <div id="modificationList"></div>
+          </div>
+        </div>
+
+        <!-- Правая панель — превью -->
+        <div class="appearance-right">
+          <div class="appearance-preview-placeholder">
+            <span class="preview-icon">🎨</span>
+            <p>Над графической частью редактора внешности ведётся работа</p>
+            <span class="preview-hint">Здесь будет визуальное отображение персонажа</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+  <!-- TAB: Магия                -->
+  <!-- ========================= -->
+  <section class="tab-content" id="tab-magic" aria-labelledby="tab-magic-btn">
+    <section class="card">
+      <header class="card-header">
+        <h2 class="card-title">Магия</h2>
+      </header>
+      <div class="magic-subtabs" id="magicSubtabsContainer">
+        <button class="sub-tab-btn active" data-subtab="magic-schools" onclick="switchMagicSubtab('magic-schools')">Школы и чародейство</button>
+        <button class="sub-tab-btn" data-subtab="magic-spells" onclick="switchMagicSubtab('magic-spells')">Заклинания</button>
+      </div>
+
+      <!-- Подвкладка: Школы -->
+      <div class="sub-tab-content active" id="magic-schools">
+        <div class="mana-panel">
+          <div class="mana-row">
+            <div class="mana-group compact">
+              <label class="field-label bonus-label-row">
+                <span>МАНА</span>
+                <span class="bonus-cog" onclick="openBonusModal('manaMax', 'Максимум маны')" title="Настроить бонусы">⚙️</span>
+              </label>
+              <div class="mana-values">
+                <div class="input-with-spinner">
+                  <input type="number" class="field-input flex-center" id="manaCurrent" placeholder="Тек." min="0" oninput="updateMana()">
+                  <div class="custom-spinners">
+                    <button type="button" class="spinner-btn spinner-up" data-delta="1" tabindex="-1">▲</button>
+                    <button type="button" class="spinner-btn spinner-down" data-delta="-1" tabindex="-1">▼</button>
+                  </div>
+                </div>
+                <span class="xp-separator">/</span>
+                <div class="field-input flex-center bold" id="manaMax" readonly>—</div>
+              </div>
+            </div>
+            <div class="mana-rb compact">
+              <label class="field-label" for="mana-rb">RB</label>
+              <input type="number" class="field-input mana-rb-input" id="manaRb" min="1" max="4" value="1" oninput="updateManaRb(this.value)">
+            </div>
+          </div>
+                <div class="mana-controls" style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-top:12px;">
+        <button class="btn btn-small" onclick="restMana('short')">Короткий отдых (+<span id="manaShortRest">0</span>)</button>
+        <button class="btn btn-small btn-secondary" onclick="restMana('long')">Долгий отдых</button>
+      </div>
+<div class="mana-abilities-row" id="manaStats">
+            <span class="mana-empty">Хар-ки: —</span>
+          </div>
+        </div>
+
+        <div id="magicSchoolsList"></div>
+        <button class="btn btn-small mt-12" onclick="showAddMagicMenu()">+ Добавить школу / чародейство</button>
+      </div>
+
+      <div id="magicDynamicContents"></div>
+
+      <!-- Подвкладка: Заклинания -->
+      <div class="sub-tab-content" id="magic-spells">
+        <div class="spells-toolbar">
+          <button class="btn btn-small" onclick="showAddSpellDialog()">Добавить заклинание</button>
+          <button class="btn btn-small btn-blue" onclick="showArtifactSpellDialog()">Через артефакт</button>
+        </div>
+        <div class="spells-grid" id="spellsGrid"></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========================= -->
+<!-- TAB: Псионика             -->
+<!-- ========================= -->
+<section class="tab-content" id="tab-psionic" aria-labelledby="tab-psionic-btn">
+
+  <!-- PP и дисциплина -->
+  <section class="card">
+    <header class="card-header">
+      <h2 class="card-title">Псионика</h2>
+    </header>
+
+    <div class="psionic-pp-panel">
+      <div class="psionic-pp-group">
+        <label class="field-label bonus-label-row">
+          <span>Очки псионики (PP)</span>
+          <span class="bonus-cog" onclick="openBonusModal('ppMax', 'Максимум псионики')" title="Настроить бонусы">⚙️</span>
+        </label>
+        <div class="hp-split flex-gap-sm">
+          <div class="input-with-spinner">
+            <input type="number" class="field-input flex-center" id="psionicPpCurrent" placeholder="Тек." min="0">
+            <div class="custom-spinners">
+              <button type="button" class="spinner-btn spinner-up" data-delta="1" tabindex="-1">▲</button>
+              <button type="button" class="spinner-btn spinner-down" data-delta="-1" tabindex="-1">▼</button>
+            </div>
+          </div>
+          <span class="slash-sep">/</span>
+          <div class="field-input flex-center bold" id="psionicPpMax">—</div>
+        </div>
+      </div>
+      <div class="psionic-pp-controls">
+        <button class="btn btn-small" onclick="restPsionic('short')">Короткий отдых (+<span id="psionicShortRest">0</span>)</button>
+        <button class="btn btn-small btn-secondary" onclick="restPsionic('long')">Долгий отдых</button>
+      </div>
+      <div class="psionic-overload-info" id="psionicOverloadInfo" style="display:none;">
+        <span class="overload-warning">⚠️ Перегрузка: кость урона увеличена до <span id="overloadDice">d4</span></span>
+      </div>
+    </div>
+
+    <div class="psionic-discipline-bar mt-20">
+      <div class="field-group" style="min-width:200px;">
+        <label class="field-label">Дисциплина</label>
+        <select class="field-input" id="psionicDiscipline">
+          <option value="telekinesis">Телекинез</option>
+        </select>
+      </div>
+      <div class="field-group" style="min-width:220px;">
+        <label class="field-label">Уровень развития</label>
+        <select class="field-input" id="psionicDisciplineLevel">
+          <option value="1">α — Начало</option>
+          <option value="2">β — Базовый контроль</option>
+          <option value="3">δ — Комплексные манипуляции</option>
+          <option value="4">ε — Псионика вплетена в восприятие</option>
+          <option value="5">ζ — Уникальные техники</option>
+          <option value="6">τ — Масштабные проявления</option>
+          <option value="7">ω — Легенда</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Телекинез -->
+  <section class="card" id="psionicTelekinesisCard">
+    <header class="card-header">
+      <h2 class="card-title">Телекинез</h2>
+      <span class="psionic-key-ability">Ключевая характеристика: Интеллект</span>
+    </header>
+
+    <div class="tk-stats-grid" id="tkStatsGrid"></div>
+
+    <div class="tk-techniques mt-20">
+      <h3 class="feature-column-title">Приёмы</h3>
+      <div id="tkTechniquesList"></div>
+    </div>
+  </section>
+
+</section>
+
+</main>
+
+<!-- ========================= -->
+<!-- Inventory Modals          -->
+<!-- ========================= -->
+
+<!-- Редактирование предмета -->
+<dialog class="modal-overlay" id="itemModal">
+  <section class="modal">
+    <header class="modal-header">
+      <h3 class="modal-title">Редактирование предмета</h3>
+    </header>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label" for="item-name">Название</label>
+        <input type="text" class="field-input" id="itemName">
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="item-w">Ширина (ячейки)</label>
+          <input type="number" class="field-input" id="itemW" min="1" max="20">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="item-h">Высота (ячейки)</label>
+          <input type="number" class="field-input" id="itemH" min="1" max="20">
+        </div>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="item-weight">Вес</label>
+        <input type="number" class="field-input" id="itemWeight" min="0" step="0.1">
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="item-cost">Стоимость</label>
+        <input type="number" class="field-input" id="itemCost" min="0">
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="item-desc">Описание</label>
+        <textarea class="field-input" id="itemDesc" rows="3"></textarea>
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+  <div class="field-group">
+    <label class="field-label" for="item-bg-color">Цвет фона</label>
+    <input type="color" class="field-input" id="itemBgColor">
+  </div>
+  <div class="field-group">
+    <label class="field-label" for="item-border-color">Цвет рамки</label>
+    <input type="color" class="field-input" id="itemBorderColor">
+  </div>
+</div>
+<div class="fields-grid fields-grid-2 mt-12" style="grid-template-columns:1fr 2fr;">
+  <div class="field-group">
+    <label class="field-label" for="item-text-color">Цвет текста</label>
+    <input type="color" class="field-input" id="itemTextColor" value="#ffffff">
+  </div>
+  <div class="field-group">
+    <label class="field-label" for="item-font-size">Размер шрифта</label>
+    <input type="number" class="field-input" id="itemFontSize" value="11" min="8" max="24">
+  </div>
+</div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeItemModal()">Отмена</button>
+      <button class="btn" onclick="saveItemModal()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Настройки хранилища -->
+<dialog class="modal-overlay" id="storageModal">
+  <section class="modal">
+    <header class="modal-header">
+      <h3 class="modal-title">Настройки хранилища</h3>
+    </header>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label" for="stor-name">Название</label>
+        <input type="text" class="field-input" id="storName">
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="stor-w">Ширина (клеток)</label>
+          <input type="number" class="field-input" id="storW" min="1" max="30">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="stor-h">Высота (клеток)</label>
+          <input type="number" class="field-input" id="storH" min="1" max="30">
+        </div>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="stor-scale">Масштаб веса</label>
+        <input type="number" class="field-input" id="storScale" min="0" step="0.1" value="1">
+      </div>
+      <div class="field-group flex-end-gap-sm mt-12">
+        <label class="field-label mb-4" for="stor-mini">Мини-сетка</label>
+        <input type="checkbox" id="storMini" class="checkbox-lg">
+      </div>
+      <div class="fields-grid fields-grid-3 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="stor-bg-color">Фон</label>
+          <input type="color" class="field-input" id="storBgColor" value="#2a3a2a">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="stor-grid-color">Сетка</label>
+          <input type="color" class="field-input" id="storGridColor" value="#4a5a4a">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="stor-mini-grid-color">Мини-сетка</label>
+          <input type="color" class="field-input" id="storMiniGridColor" value="#5a6a5a">
+        </div>
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeStorageModal()">Отмена</button>
+      <button class="btn" onclick="saveStorageModal()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Модификаторы -->
+<dialog class="modal-overlay" id="modifierModal">
+  <section class="modal">
+    <header class="modal-header">
+      <h3 class="modal-title">Модификаторы грузоподъёмности</h3>
+    </header>
+    <div class="modal-body">
+      <div id="modifierList"></div>
+      <button class="btn btn-small w-full mt-12" onclick="addModifierRow()">+ Добавить модификатор</button>
+      <div class="modifier-total" id="modifierTotal">Общий: +0%</div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModifierModal()">Отмена</button>
+      <button class="btn" onclick="saveModifierModal()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- ========================= -->
+<!-- Bonus Modal               -->
+<!-- ========================= -->
+<dialog class="modal-overlay" id="bonusModal">
+  <section class="modal">
+    <header class="modal-header">
+      <h3 class="modal-title" id="bonusModalTitle">Бонусы</h3>
+    </header>
+    <div class="modal-body">
+      <div id="skillConditionBlock" class="skill-condition-block hidden">
+        <div class="field-label" style="margin-bottom:10px;">Условие броска</div>
+        <div class="condition-toggle-group">
+          <button class="condition-btn active" id="condNone" onclick="setSkillCondition(null)">Обычный</button>
+          <button class="condition-btn advantage" id="condAdvantage" onclick="setSkillCondition('advantage')">
+            <span class="icon-advantage"></span>
+            Преимущество
+          </button>
+          <button class="condition-btn disadvantage" id="condDisadvantage" onclick="setSkillCondition('disadvantage')">
+            <span class="icon-disadvantage"></span>
+            Помеха
+          </button>
+        </div>
+      </div>
+      <div id="bonusList"></div>
+      <button class="btn btn-small w-full mt-12" onclick="addBonusRow()">+ Добавить бонус</button>
+      <div class="bonus-summary" id="bonusSummary">
+        <!-- Row 1: Formula values -->
+        <div class="bonus-formula-values">
+          <div class="bonus-value-box">
+            <div class="bonus-value-num green" id="bonusTotalNumeric">+0</div>
+          </div>
+          <div class="bonus-sep">+</div>
+          <div class="bonus-value-box">
+            <div class="bonus-value-num accent" id="bonusTotalPercent">+0%</div>
+          </div>
+          <div class="bonus-sep">=</div>
+          <div class="bonus-value-box">
+            <div class="bonus-value-num primary" id="bonusTotalFinal">+0</div>
+          </div>
+        </div>
+        <!-- Row 2: Labels / explanations -->
+        <div class="bonus-formula-labels">
+          <div class="bonus-label-box">
+            <div class="bonus-label-text">Числовой бонус</div>
+          </div>
+          <div class="bonus-label-sep"></div>
+          <div class="bonus-label-box">
+            <div class="bonus-label-text">Процентный бонус</div>
+          </div>
+          <div class="bonus-label-sep"></div>
+          <div class="bonus-label-box">
+            <div class="bonus-label-text">Итоговый бонус</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeBonusModal()">Отмена</button>
+      <button class="btn" onclick="saveBonusModal()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Контекстное меню -->
+<div class="context-menu" id="contextMenu">
+  <div class="ctx-item" id="ctxRotateRow" onclick="ctxRotate()">↻ Повернуть на 90°</div>
+  <div class="ctx-item" onclick="ctxDelete()">🗑️ Удалить</div>
+  <div class="ctx-item" onclick="ctxEdit()">✏️ Редактировать</div>
+</div>
+
+<!-- ========================= -->
+<!-- Magic Modals              -->
+<!-- ========================= -->
+
+<!-- Добавление школы -->
+<dialog class="modal-overlay" id="addSchoolModal">
+  <section class="modal modal-narrow">
+    <header class="modal-header">
+      <h3 class="modal-title">Добавить школу магии</h3>
+    </header>
+    <div class="modal-body">
+      <div class="add-school-list" id="addSchoolList"></div>
+      <div class="sorcery-divider">
+        <button class="btn btn-small w-full" onclick="addSorceryRow()">✨ Чародейство</button>
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeAddSchoolModal()">Отмена</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Добавление заклинания -->
+<dialog class="modal-overlay" id="addSpellModal">
+  <section class="modal">
+    <header class="modal-header">
+      <h3 class="modal-title">Добавить заклинание</h3>
+    </header>
+    <div class="modal-body">
+      <input type="text" class="field-input mb-12" id="spellSearch" placeholder="🔍 Поиск..." oninput="filterSpellList()">
+      <div class="spell-list" id="spellList"></div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeAddSpellModal()">Отмена</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Артефактное заклинание -->
+<dialog class="modal-overlay" id="artifactSpellModal">
+  <section class="modal modal-wide">
+    <header class="modal-header" style="display:flex;justify-content:space-between;align-items:center;">
+      <h3 class="modal-title">Создание заклинания через артефакт</h3>
+      <button onclick="closeArtifactSpellModal()" style="background:none;border:none;color:var(--text-secondary);font-size:22px;cursor:pointer;line-height:1;">×</button>
+    </header>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label" for="art-spell-name">Название</label>
+        <div class="autocomplete-wrap" style="position:relative;">
+          <input type="text" class="field-input" id="artSpellName" placeholder="Введите название..." autocomplete="off" oninput="onArtifactSpellNameInput(this.value)">
+          <div class="autocomplete-dropdown" id="artSpellNameDropdown" style="position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:200;"></div>
+        </div>
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="art-spell-school">Школа</label>
+          <select class="field-input" id="artSpellSchool"></select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="art-spell-circle">Круг</label>
+          <input type="number" class="field-input" id="artSpellCircle" min="1" max="9" value="1">
+        </div>
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="art-spell-type">Тип</label>
+          <input type="text" class="field-input" id="artSpellType" placeholder="Тип заклинания">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="art-spell-cast-time">Время каста</label>
+          <input type="text" class="field-input" id="artSpellCastTime" placeholder="1 действие">
+        </div>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="art-spell-components">Компоненты</label>
+        <textarea class="field-input" id="artSpellComponents" rows="2" placeholder="Вербальные, соматические, материальные..."></textarea>
+      </div>
+            <div class="field-group mt-12">
+        <label class="field-label" for="art-spell-range">Дистанция</label>
+        <input type="text" class="field-input" id="artSpellRange" placeholder="60 фт.">
+      </div>
+
+<div class="field-group mt-12">
+        <label class="field-label" for="art-spell-description">Описание</label>
+        <textarea class="field-input" id="artSpellDescription" rows="3" placeholder="Описание заклинания..."></textarea>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="art-spell-effect">Эффект</label>
+        <textarea class="field-input" id="artSpellEffect" rows="3" placeholder="Механический эффект заклинания..."></textarea>
+      </div>
+      <div class="fields-grid fields-grid-2 mt-12">
+        <div class="field-group">
+          <label class="field-label" for="art-spell-mana">Базовая стоимость маны (K)</label>
+          <input type="number" class="field-input" id="artSpellManaCost" min="0" value="0">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="art-spell-level">Уровень заклинания (L_s)</label>
+          <input type="number" class="field-input" id="artSpellLevel" min="0" max="20" value="0">
+        </div>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="art-spell-formula">Формула манакоста (опционально)</label>
+        <input type="text" class="field-input" id="artSpellFormula" placeholder="Оставьте пустым для стандартной формулы">
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeArtifactSpellModal()">Отмена</button>
+      <button class="btn" onclick="saveArtifactSpell()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Формула манакоста -->
+<dialog class="modal-overlay" id="manaFormulaModal">
+  <section class="modal modal-narrow">
+    <header class="modal-header">
+      <h3 class="modal-title">Формула манакоста</h3>
+    </header>
+    <div class="modal-body">
+      <div class="modal-hint">Доступные переменные: K, Cs, Ls, L, P, O</div>
+      <input type="text" class="field-input" id="manaFormulaInput" placeholder="Оставьте пустым для стандартной формулы">
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeManaFormulaModal()">Отмена</button>
+      <button class="btn" onclick="saveManaFormula()">Сохранить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Захват души -->
+<dialog class="modal-overlay" id="addSoulModal">
+  <section class="modal modal-narrow">
+    <header class="modal-header">
+      <h3 class="modal-title">Захватить душу</h3>
+    </header>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label" for="soul-color">Цвет души</label>
+        <select class="field-input" id="soulColor">
+          <option value="белый">⚪ Белый (ангельские)</option>
+          <option value="чёрный">⬛ Чёрный (порождения бездны)</option>
+          <option value="оранжевый">🟠 Оранжевый (проклятые)</option>
+          <option value="зелёный">🟢 Зелёный (животные)</option>
+          <option value="голубой" selected>🔵 Голубой (гуманоиды)</option>
+          <option value="красный">🔴 Красный (адские)</option>
+        </select>
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="soul-sparkle">Искристость</label>
+        <input type="text" class="field-input" id="soulSparkle" value="Обычная" placeholder="Обычная, божественная, бессмертная...">
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="soul-properties">Свойства (через запятую)</label>
+        <input type="text" class="field-input" id="soulProperties" placeholder="гуманоид, воин, мужчина, невинный...">
+      </div>
+      <div class="field-group mt-12">
+        <label class="field-label" for="soul-source">Источник</label>
+        <input type="text" class="field-input" id="soulSource" placeholder="Гоблин-лучник, демон...">
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeAddSoulModal()">Отмена</button>
+      <button class="btn" onclick="saveSoul()">Захватить</button>
+    </footer>
+  </section>
+</dialog>
+
+<!-- Spell Debug Modal -->
+<div class="modal-overlay" id="spellDebugModal">
+  <section class="modal modal-wide">
+    <header class="modal-header">
+      <h3 class="modal-title">⚙ Отладка заклинания</h3>
+      <button class="modal-close" onclick="closeSpellDebugModal()">×</button>
+    </header>
+      <div class="debug-field">
+        <label>Название</label>
+        <input type="text" id="dbgSpellName" readonly>
+      </div>
+      <div class="debug-field">
+        <label>Школа</label>
+        <input type="text" id="dbgSpellSchool" readonly>
+      </div>
+      <div class="debug-field">
+        <label>Манакост (K)</label>
+        <input type="number" id="dbgSpellMana" min="0">
+      </div>
+      <div class="debug-field">
+        <label>Круг</label>
+        <input type="number" id="dbgSpellCircle" min="1" max="10">
+      </div>
+      <div class="debug-field">
+        <label>Тип</label>
+        <input type="text" id="dbgSpellType">
+      </div>
+      <div class="debug-field">
+        <label>Время каста</label>
+        <input type="text" id="dbgSpellCastTime">
+      </div>
+      <div class="debug-field">
+        <label>Компоненты</label>
+        <textarea id="dbgSpellComponents" rows="3"></textarea>
+      </div>
+            <div class="debug-field">
+        <label>Дистанция</label>
+        <input type="text" id="dbgSpellRange">
+      </div>
+
+<div class="debug-field">
+        <label>Описание</label>
+        <textarea id="dbgSpellDescription" rows="4"></textarea>
+      </div>
+      <div class="debug-field">
+        <label>Эффект</label>
+        <textarea id="dbgSpellEffect" rows="5"></textarea>
+      </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeSpellDebugModal()">Отмена</button>
+      <button class="btn" onclick="saveSpellDebug()">Сохранить</button>
+    </footer>
+  </section>
+</div>
+
+<!-- Модальное окно: информация о черте (?) -->
+<dialog class="modal-overlay" id="traitInfoModal">
+  <section class="modal">
+    <header class="modal-header" style="display:flex;justify-content:space-between;align-items:center;">
+      <h3 class="modal-title" id="traitInfoTitle">Черта</h3>
+      <button onclick="closeModal('traitInfoModal')" style="background:none;border:none;color:var(--text-secondary);font-size:24px;cursor:pointer;line-height:1;">×</button>
+    </header>
+    <div class="modal-body">
+      <div id="traitInfoMeta" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;"></div>
+      <div class="field-group">
+        <label class="field-label">Описание</label>
+        <div id="traitInfoDesc" style="font-size:13px;line-height:1.6;color:var(--text-primary);white-space:pre-wrap;padding:10px 12px;background:rgba(26,34,26,0.5);border:1px solid var(--border);border-radius:10px;"></div>
+      </div>
+      <div class="field-group mt-16" id="traitInfoEffectBlock" style="display:none;">
+        <label class="field-label">Эффект</label>
+        <div id="traitInfoEffect" style="font-size:13px;line-height:1.6;color:var(--blue);padding:10px 12px;background:rgba(107,143,163,0.08);border:1px solid rgba(107,143,163,0.25);border-radius:10px;white-space:pre-wrap;"></div>
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('traitInfoModal')">Закрыть</button>
+    </footer>
+  </section>
+</dialog>
+
+</body>
+</html>

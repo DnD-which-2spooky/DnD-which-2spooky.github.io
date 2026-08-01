@@ -1,0 +1,394 @@
+[
+  {
+    "name": "Отсутствует левая нога",
+    "category": "left_leg",
+    "description": "У вас нет левой ноги, это малость осложняет вашу жизнь",
+    "effect": "bonuses.speedWalk: -50%, Атлетика: Disadvantage",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -50,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует правая нога",
+    "category": "right_leg",
+    "description": "У вас нет правой ноги, это малость осложняет вашу жизнь",
+    "effect": "bonuses.speedWalk: -50%, Атлетика: Disadvantage",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -50,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует левая рука",
+    "category": "left_arm",
+    "description": "У вас нет левой руки, это малость осложняет вашу жизнь",
+    "effect": "inventory.modifiers: -25%, Акробатика: Disadvantage, Ловкость рук: Disadvantage",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "inventory_modifiers",
+        "value": -25,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Акробатика",
+        "condition": "disadvantage"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Ловкость рук",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует правая рука",
+    "category": "right_arm",
+    "description": "У вас нет правой руки, это малость осложняет вашу жизнь",
+    "effect": "inventory.modifiers: -25%, Акробатика: Disadvantage, Ловкость рук: Disadvantage",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "inventory_modifiers",
+        "value": -25,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Акробатика",
+        "condition": "disadvantage"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Ловкость рук",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует правый глаз",
+    "category": "head",
+    "description": "Так или иначе у вас нет правого глаза. Надеюсь, вы выбрали вилку.",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Восприятие",
+        "condition": "disadvantage",
+        "context": "зрение"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует левый глаз",
+    "category": "head",
+    "description": "Так или иначе у вас нет левого глаза. Надеюсь, вы выбрали вилку.",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Восприятие",
+        "condition": "disadvantage",
+        "context": "зрение"
+      }
+    ]
+  },
+  {
+    "name": "Ожоги",
+    "category": "head",
+    "description": "Огонь опалил ваше славное лицо, печалька(",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Харизма",
+        "condition": "disadvantage",
+        "context": "социальное взаимодействие"
+      }
+    ]
+  },
+  {
+    "name": "Шрамы",
+    "category": "head",
+    "description": "Шрамы укрощают мужчин, или там не так было...",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Вырезан язык",
+    "category": "head",
+    "description": "Зато он всегда за зубами",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Харизма",
+        "condition": "disadvantage",
+        "context": "речь"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Запугивание",
+        "condition": "disadvantage",
+        "context": "речь"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Убеждение",
+        "condition": "disadvantage",
+        "context": "речь"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует нос",
+    "category": "head",
+    "description": "Любопытной Варваре на базаре нос оторвали.",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Восприятие",
+        "condition": "disadvantage",
+        "context": "обоняние"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует правое ухо",
+    "category": "head",
+    "description": "Незачем уши развешивать",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Восприятие",
+        "condition": "disadvantage",
+        "context": "слух"
+      }
+    ]
+  },
+  {
+    "name": "Отсутствует левое ухо",
+    "category": "head",
+    "description": "Незачем уши развешивать",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Восприятие",
+        "condition": "disadvantage",
+        "context": "слух"
+      }
+    ]
+  },
+  {
+    "name": "Ожог",
+    "category": "neck",
+    "description": "Огонь или кислота? Кто оставил эти ожоги?",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Порванные голосовые связки",
+    "category": "neck",
+    "description": "Тише едешь хехехе",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Харизма",
+        "condition": "disadvantage",
+        "context": "речь"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Запугивание",
+        "condition": "disadvantage",
+        "context": "речь"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Убеждение",
+        "condition": "disadvantage",
+        "context": "речь"
+      }
+    ]
+  },
+  {
+    "name": "Шрамы",
+    "category": "neck",
+    "description": "Знаешь, откуда у меня эти шрамы?",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Перелом ключицы",
+    "category": "upper_chest",
+    "description": "В результате неудачных действий вы сломали ключицу. Храни вас бог.",
+    "effect": "",
+    "effects": [
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      },
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -10,
+        "unit": "percent"
+      }
+    ]
+  },
+  {
+    "name": "Перелом рёбер",
+    "category": "upper_chest",
+    "description": "Ммм, рёбрышки... Моё любимое",
+    "effect": "",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -15,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Ожог",
+    "category": "upper_chest",
+    "description": "Ваша грудь была обожжена. Надеюсь, вы приняли эти травмы.",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Шрамы",
+    "category": "upper_chest",
+    "description": "Вашу грудь украшают шрамы от порезов.",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Шрамы",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Ожоги",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": []
+  },
+  {
+    "name": "Повреждение селезёнки",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -20,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Повреждение печени",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -20,
+        "unit": "percent"
+      },
+      {
+        "type": "bonus",
+        "target": "hp",
+        "value": -10,
+        "unit": "percent"
+      }
+    ]
+  },
+  {
+    "name": "Повреждение кишечника",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -25,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      }
+    ]
+  },
+  {
+    "name": "Кишки наружу",
+    "category": "abdomen",
+    "description": "",
+    "effect": "",
+    "effects": [
+      {
+        "type": "bonus",
+        "target": "speedWalk",
+        "value": -50,
+        "unit": "percent"
+      },
+      {
+        "type": "skill_condition",
+        "skill": "Атлетика",
+        "condition": "disadvantage"
+      },
+      {
+        "type": "bonus",
+        "target": "hp",
+        "value": -20,
+        "unit": "percent"
+      }
+    ]
+  }
+]

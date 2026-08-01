@@ -1,0 +1,77 @@
+{
+  "schoolIcons": {
+    "Теургия": "🕊️",
+    "Шаманизм": "🔮",
+    "Друидизм": "🌿",
+    "Некромантия": "💀",
+    "Зачарование": "✨",
+    "Астрология": "⭐",
+    "Магия музыки": "🎵",
+    "Ведьмовство": "🧹",
+    "Академическая магия": "📐"
+  },
+  "spellCardLayout": {
+    "viewBox": "0 0 625 819",
+    "slots": {
+      "name": {
+        "left": 11,
+        "top": 14,
+        "width": 226,
+        "height": 29
+      },
+      "levelBadge": {
+        "cx": 305.5,
+        "cy": 28.5,
+        "r": 22.5,
+        "label": "УР"
+      },
+      "circleBadge": {
+        "cx": 375.5,
+        "cy": 28.5,
+        "r": 22.5,
+        "label": "КРУГ"
+      },
+      "schoolIconBadge": {
+        "cx": 438.5,
+        "cy": 28.5,
+        "r": 22.5
+      },
+      "school": {
+        "left": 11,
+        "top": 72,
+        "width": 226,
+        "height": 38
+      },
+      "type": {
+        "left": 256,
+        "top": 72,
+        "width": 216,
+        "height": 38
+      },
+      "components": {
+        "left": 11,
+        "top": 134,
+        "width": 461,
+        "height": 40
+      },
+      "description": {
+        "left": 12,
+        "top": 201,
+        "width": 460,
+        "height": 161
+      },
+      "effect": {
+        "left": 19,
+        "top": 401,
+        "width": 453,
+        "height": 142
+      },
+      "icon": {
+        "left": 17,
+        "top": 567,
+        "width": 51,
+        "height": 51
+      }
+    }
+  }
+}
