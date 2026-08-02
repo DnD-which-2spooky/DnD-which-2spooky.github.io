@@ -313,7 +313,7 @@
       "properties": [],
       "upgrade_slots": [],
       "region": "Повсеместно",
-      "description": ""
+      "description": "Простая роба, которую носят все заключенные."
     },
     {
       "id": 15,
@@ -327,116 +327,146 @@
       "properties": [],
       "upgrade_slots": [],
       "region": "Повсеместно",
-      "description": ""
+      "description": "Роба заключённого, усиленная пластинами."
     },
     {
       "id": 16,
-      "name": "",
+      "name": "Максимилиановский шлем",
       "category": "mid",
-      "slot": "",
-      "ac": 0,
+      "slot": "шлем, горжет",
+      "ac": 2,
       "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
+      "durability_threshold": 3,
+      "durability": 60.0,
+      "properties": [
+        "movable_visor"
+      ],
+      "upgrade_slots": [
+        "Купол",
+        "Забрало",
+        "Назатыльник",
+        "Нащёчники",
+        "Подбородник"
+      ],
+      "region": "Германия",
+      "description": "Закрытый стальной шлем с характерным невысоким гребнем-ребром жёсткости на куполе. Забрало выполнено в виде подвижной «гармошки», что обеспечивает отличный обзор и вентиляцию. Имеет усиленный назатыльник и подвижные нащёчники.",
       "dex_bonus_max": 3
     },
     {
       "id": 17,
-      "name": "",
-      "category": "mid",
-      "slot": "",
-      "ac": 0,
-      "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
-      "dex_bonus_max": 3
+      "name": "Максимилиановская кираса",
+      "category": "makeshift",
+      "slot": "chest",
+      "ac": 14,
+      "dex_bonus_applies": false,
+      "durability_threshold": 3,
+      "durability": 85.0,
+      "properties": [
+        "reinforced_cuirass",
+        "modularity"
+      ],
+      "upgrade_slots": [
+        "Нагрудник",
+        "Наспинник",
+        "Плакарт",
+        "Боковые пластины"
+      ],
+      "region": "Германия",
+      "description": "Нагрудник и наспинник с характерной «острой талией», повторяющей моду эпохи. Нагрудник часто состоит из двух частей (верхней и нижней — плакарта), имеет притупленный конец. Рифление значительно повышает прочность."
     },
     {
       "id": 18,
-      "name": "",
+      "name": "Комплект защиты рук",
       "category": "mid",
-      "slot": "",
-      "ac": 0,
+      "slot": "руки",
+      "ac": 1,
       "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
+      "durability_threshold": 2,
+      "durability": 60.0,
+      "properties": [
+        "modularity",
+        "высокие_воротники"
+      ],
+      "upgrade_slots": [
+        "Плечевые пластины",
+        "Воротники",
+        "Локтевые щитки",
+        "Перчатки",
+        "Ремни регулировки"
+      ],
+      "region": "Германия",
+      "description": "Включает наплечники (с высокими воротниками, защищающими шею с боков), наручи (предплечья), налокотники (локти, заострённой формы с двустворчатыми щитками) и латные перчатки митенкового типа (из перекрывающихся пластин). Все части имеют рифление для усиления.",
       "dex_bonus_max": 3
     },
     {
       "id": 19,
-      "name": "",
+      "name": "Комплект защиты ног",
       "category": "mid",
-      "slot": "",
-      "ac": 0,
+      "slot": "ноги",
+      "ac": 1,
       "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
+      "durability_threshold": 2,
+      "durability": 50.0,
+      "properties": [
+        "modularity"
+      ],
+      "upgrade_slots": [
+        "Наколенники",
+        "Голени",
+        "Ремни",
+        "Шарниры"
+      ],
+      "region": "Германия",
+      "description": "Включает наколенники (подвижные, защищающие коленный сустав) и поножи (голени, состоящие из передней и задней пластин). В отличие от других частей, поножи не имеют рифления — характерная черта Максимилиановского стиля.",
       "dex_bonus_max": 3
     },
     {
       "id": 20,
-      "name": "",
+      "name": "Максимилиановские сабатоны",
       "category": "mid",
-      "slot": "",
+      "slot": "сабатоны",
       "ac": 0,
       "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
+      "durability_threshold": 1,
+      "durability": 20.0,
+      "properties": [
+        "modularity"
+      ],
+      "upgrade_slots": [
+        "Мысок",
+        "Пятка",
+        "Ремни",
+        "Подошва"
+      ],
+      "region": "Германия",
+      "description": "Латные башмаки широкой тупой формы, называемые «медвежьи лапы». Состоят из нескольких подвижных пластин для комфорта при ходьбе. Защищают стопу и голеностоп.",
       "dex_bonus_max": 3
     },
     {
       "id": 21,
-      "name": "",
+      "name": "Набрюшник с налядвенниками",
       "category": "mid",
-      "slot": "",
-      "ac": 0,
+      "slot": "набрюшник",
+      "ac": 1,
       "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
+      "durability_threshold": 2,
+      "durability": 45.0,
+      "properties": [
+        "modularity"
+      ],
+      "upgrade_slots": [
+        "Ламели юбки",
+        "Ремни крепления",
+        "Боковые вставки",
+        "Регулировка длины тассетов"
+      ],
+      "region": "Германия",
+      "description": "Состоит из горизонтальных перекрывающихся ламелей, крепящихся к нижней части кирасы. Защищает нижнюю часть живота и пах. Дополнительные налядвенники (тассеты) подвешиваются к юбке и прикрывают верхнюю часть бёдер, часто с волнистыми краями.",
       "dex_bonus_max": 3
     },
-    {
+        {
       "id": 22,
-      "name": "",
-      "category": "mid",
-      "slot": "",
-      "ac": 0,
-      "dex_bonus_applies": true,
-      "durability_threshold": 0,
-      "durability": 0,
-      "properties": [],
-      "upgrade_slots": [],
-      "region": "—",
-      "description": "",
-      "dex_bonus_max": 3
-    },
-    {
-      "id": 23,
-      "name": "Пенис",
+      "name": "Баклер",
       "category": "mid",
       "slot": "shield",
       "ac": 1,
@@ -444,18 +474,30 @@
       "durability_threshold": 3,
       "durability": 85.0,
       "properties": [
-        "ostentatious_appearance",
-        "modularity",
-        "reinforced_cuirass"
       ],
       "upgrade_slots": [
-        "Ремни",
-        "Боковые пластины",
-        "Спинная часть",
-        "Анатомическая пластина"
       ],
-      "region": "Рим",
-      "description": "Бронзовый или стальной нагрудник в форме мускулатуры, использовавшийся римскими офицерами и центурионами.",
+      "region": "Европа",
+      "description": "Маленький щит, которым удобно отражать удары противников",
+      "dex_bonus_max": 3,
+      "set_id": 5,
+      "set_slot_type": "required"
+    },
+    {
+      "id": 23,
+      "name": "Большой щит",
+      "category": "mid",
+      "slot": "shield",
+      "ac": 2,
+      "dex_bonus_applies": true,
+      "durability_threshold": 3,
+      "durability": 85.0,
+      "properties": [
+      ],
+      "upgrade_slots": [
+      ],
+      "region": "Европа",
+      "description": "Большой щит, заслоняющий всех за собой.",
       "dex_bonus_max": 3,
       "set_id": 5,
       "set_slot_type": "required"
@@ -514,8 +556,8 @@
     },
     {
       "id": 6,
-      "name": "",
-      "category": null,
+      "name": "Максимилиановский доспех",
+      "category": "heavy",
       "description": "",
       "set_bonus": {},
       "required_slots": [],
@@ -805,6 +847,13 @@
       "applies_to": "Кольчужный доспех",
       "effect": "Сопротивление колющему урону\nПомеха на проверки Скрытности",
       "description": "Сплетённые железные кольца эффективно рассеивают силу колющих ударов, но издают характерный металлический звон при движении, выдавая положение носителя."
+    },
+    {
+      "id": "высокие_воротники",
+      "name": "Высокие воротники",
+      "applies_to": "хз",
+      "effect": "-1d4 урона к физическим ударам с флангам",
+      "description": "Дополнительная защита шеи и затылка с флангов."
     }
   ],
   "categories": {
